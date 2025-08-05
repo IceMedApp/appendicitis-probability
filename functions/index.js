@@ -6,16 +6,16 @@ var app_prob = document.getElementById("app_prob");
 var submitInformation = function(){
 
     if (crp.value == '') {
-        app_prob.value = 1;
+        app_prob.innerText = 1;
     }
     else if (crp.value < 10) {
-        app_prob.value = 0.741195658058578;
+        app_prob.innerText = 0.741195658058578;
     }
     else if (crp.value >= 10) {
-        app_prob.value = 1.17909895565026;
+        app_prob.innerText = 1.17909895565026;
     }
     else {
-        app_prob.value = 1;
+        app_prob.innerText = 1;
     }
 }
 
