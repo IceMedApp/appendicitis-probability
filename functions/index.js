@@ -15,6 +15,7 @@ import {
     rbc_select_factor_app,
     wbc_select_factor_app,
     culture_factor_app,
+    app_probability_final_touches,
     app_prob_correction
 } from "./appendicitis.js";
 
@@ -58,6 +59,7 @@ var culture_factor_label = document.getElementById("culture_factor");
 
 var combined_risk_factor = document.getElementById("risk_factor");
 var adjustment = document.getElementById("adjustment");
+var app_prob_before = document.getElementById("app_prob_before");
 //
 
 var submitInformation = function(){
@@ -122,10 +124,13 @@ var submitInformation = function(){
         probability = (0.5*risk_combined)-0.01;
     }
 
+    app_prob_before.innerText = probability;
     var adjustment_value = app_prob_correction(probability);
     adjustment.innerText = adjustment_value
     probability = probability + adjustment_value
-    app_prob.innerText = probability;
+    
+    probability_str = app_probability_final_touches(probability);
+    app_prob.innerText = probability_str;
 }
 
 

@@ -229,6 +229,23 @@ function culture_factor_app() {
   }
 }
 
+function app_probability_final_touches(probability) {
+  if (crp.value < 10 && (wbc.value < 10.1 || duration.value == 3)) {
+    return 'Less than 5%'
+  }
+  else if (probability < 0) {
+    return 'Less than 1%'
+  }
+  
+  var remainder = (probability * 100) % 1
+  if (remainder < 0.5) {
+    return Math.floor(probability * 100) + '%'
+  }
+  else {
+    return Math.ceil(probability * 100) + '%'
+  }
+}
+
 function app_prob_correction(probability) {
   var adjustment = 0
   if (probability <= 0.05) {
@@ -332,5 +349,6 @@ export {
     rbc_select_factor_app,
     wbc_select_factor_app,
     culture_factor_app,
+    app_probability_final_touches,
     app_prob_correction
 };
