@@ -132,6 +132,48 @@ function appendicitis_handler() {
     app_prob.innerText = probability_str;
 }
 
+function abscess_handler() {
+    var crp_risk_factor = crp_factor_abs();
+    crp_factor_label.innerText = crp_risk_factor;
+
+    var wbc_risk_factor = wbc_factor_abs();
+    wbc_factor_label.innerText = wbc_risk_factor;
+
+    var duration_risk_factor = duration_factor_abs();
+    duration_factor_label.innerText = duration_risk_factor;
+
+    var temp_risk_factor = temp_factor_abs();
+    temperature_factor_label.innerText = temp_risk_factor;
+
+    var age_risk_factor = age_factor_abs();
+    age_factor_label.innerText = age_risk_factor;
+
+    var gender_risk_factor = gender_factor_abs();
+    gender_factor_label.innerText = gender_risk_factor;
+
+    var neutrophils_risk_factor = neutrophils_factor_abs();
+    neutrophils_factor_label.innerText = neutrophils_risk_factor;
+
+    var risk_combined = crp_risk_factor * wbc_risk_factor * duration_risk_factor * temp_risk_factor * age_risk_factor * gender_risk_factor * neutrophils_risk_factor;
+    combined_risk_factor.innerText = risk_combined
+
+    var probability = 0
+    if (risk_combined >= 1) {
+        return 1-((1-0.0314)/risk_combined)
+    }
+    else {
+        return 0.0314 * risk_combined
+    }
+
+    app_prob_before.innerText = probability;
+    var adjustment_value = app_prob_correction(probability);
+    adjustment.innerText = adjustment_value
+    probability = probability + adjustment_value
+
+    var probability_str = app_probability_final_touches(probability);
+    app_prob.innerText = probability_str;
+}
+
 var submitInformation = function(){
     appendicitis_handler();
 }
