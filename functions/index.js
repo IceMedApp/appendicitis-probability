@@ -62,9 +62,8 @@ var adjustment = document.getElementById("adjustment");
 var app_prob_before = document.getElementById("app_prob_before");
 //
 
-var submitInformation = function(){
-
-    var crp_risk_factor = crp_factor_app();
+function appendicitis_handler() {
+  var crp_risk_factor = crp_factor_app();
     crp_factor_label.innerText = crp_risk_factor;
 
     var wbc_risk_factor = wbc_factor_app();
@@ -128,9 +127,13 @@ var submitInformation = function(){
     var adjustment_value = app_prob_correction(probability);
     adjustment.innerText = adjustment_value
     probability = probability + adjustment_value
-    
-    probability_str = app_probability_final_touches(probability);
+
+    var probability_str = app_probability_final_touches(probability);
     app_prob.innerText = probability_str;
+}
+
+var submitInformation = function(){
+    appendicitis_handler();
 }
 
 
