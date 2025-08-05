@@ -37,21 +37,6 @@ var wbc_select_factor_label = document.getElementById("wbc_select_factor");
 var culture_factor_label = document.getElementById("culture_factor");
 //
 
-function crp_factor_app() {
-    if (crp.value == '') {
-        return 1;
-    }
-    else if (crp.value < 10) {
-        return 0.741195658058578;
-    }
-    else if (crp.value >= 10) {
-        return 1.17909895565026;
-    }
-    else {
-        return 1;
-    }
-}
-
 function wbc_factor_app() {
   if (wbc.value == '') {
     return 1
@@ -161,13 +146,13 @@ function neutrophils_factor_app() {
 }
 
 function pain_factor_app() {
-  if (pain.value == 'N/A') {
+  if (pain_rlq.value == 'N/A') {
     return 1
   }
-  else if (pain.value == 'Yes') {
+  else if (pain_rlq.value == 'Yes') {
     return 1.1004916504196
   }
-  else if (pain.value == 'No') {
+  else if (pain_rlq.value == 'No') {
     return 0.446855169839492
   }
 }
