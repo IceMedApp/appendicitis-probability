@@ -98,13 +98,13 @@ function age_factor_app() {
 }
 
 function gender_factor_app() {
-  if (gender.value == "male") {
+  if (gender.value == 'male') {
     return 1.30908828343121
   }
-  else if (gender.value == "female") {
+  else if (gender.value == 'female') {
     return 0.783833827093994
   }
-  else if (gender.value == "N/A") {
+  else if (gender.value == 'N/A') {
     return 1
   }
 }
@@ -229,6 +229,92 @@ function culture_factor_app() {
   }
 }
 
+function app_prob_correction(probability) {
+  var adjustment = 0
+  if (probability <= 0.05) {
+    adjustment = 0
+  }
+  else if (probability > 0.05 && probability <= 0.075) {
+    adjustment = 0.01
+  }
+  else if (probability > 0.075 && probability <= 0.095) {
+    adjustment = 0.02
+  }
+  else if (probability > 0.095 && probability <= 0.1425) {
+    adjustment = 0.03
+  }
+  else if (probability > 0.1425 && probability <= 0.16) {
+    adjustment = 0.04
+  }
+  else if (probability > 0.16 && probability <= 0.1925) {
+    adjustment = 0.05
+  }
+  else if (probability > 0.1925 && probability <= 0.2175) {
+    adjustment = 0.06
+  }
+  else if (probability > 0.2175 && probability <= 0.24) {
+    adjustment = 0.05
+  }
+  else if (probability > 0.24 && probability <= 0.335) {
+    adjustment = 0.06
+  }
+  else if (probability > 0.335 && probability <= 0.3775) {
+    adjustment = 0.05
+  }
+  else if (probability > 0.3775 && probability <= 0.3925) {
+    adjustment = 0.04
+  }
+  else if (probability > 0.3925 && probability <= 0.4) {
+    adjustment = 0.03
+  }
+  else if (probability > 0.4 && probability <= 0.4325) {
+    adjustment = 0.02
+  }
+  else if (probability > 0.4325 && probability <= 0.4525) {
+    adjustment = 0.01
+  }
+  else if (probability > 0.4525 && probability <= 0.5075) {
+    adjustment = 0
+  }
+  else if (probability > 0.5075 && probability <= 0.5475) {
+    adjustment = -0.01
+  }
+  else if (probability > 0.5475 && probability <= 0.5525) {
+    adjustment = -0.03
+  }
+  else if (probability > 0.5525 && probability <= 0.6375) {
+    adjustment = -0.05
+  }
+  else if (probability > 0.6375 && probability <= 0.7525) {
+    adjustment = -0.06
+  }
+  else if (probability > 0.7525 && probability <= 0.78) {
+    adjustment = -0.05
+  }
+  else if (probability > 0.78 && probability <= 0.82) {
+    adjustment = -0.04
+  }
+  else if (probability > 0.82 && probability <= 0.8625) {
+    adjustment = -0.03
+  }
+  else if (probability > 0.8625 && probability <= 0.8725) {
+    adjustment = -0.02
+  }
+  else if (probability > 0.8725 && probability <= 0.8775) {
+    adjustment = -0.03
+  }
+  else if (probability > 0.8775 && probability <= 0.895) {
+    adjustment = -0.02
+  }
+  else if (probability > 0.895 && probability <= 0.91) {
+    adjustment = -0.01
+  }
+  else if (probability > 0.91) {
+    adjustment = 0
+  }
+  return adjustment
+}
+
 export { 
     crp_factor_app,
     wbc_factor_app,
@@ -245,5 +331,6 @@ export {
     ua_factor_app,
     rbc_select_factor_app,
     wbc_select_factor_app,
-    culture_factor_app
+    culture_factor_app,
+    app_prob_correction
 };

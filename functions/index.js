@@ -14,7 +14,8 @@ import {
     ua_factor_app,
     rbc_select_factor_app,
     wbc_select_factor_app,
-    culture_factor_app
+    culture_factor_app,
+    app_prob_correction
 } from "./appendicitis.js";
 
 var crp = document.getElementById("crp");
@@ -37,7 +38,7 @@ var culture = document.getElementById("culture");
 var submitButton = document.getElementById("submit");
 var app_prob = document.getElementById("app_prob"); 
 
-// for debugging risk factors
+// for debugging
 var crp_factor_label = document.getElementById("crp_factor");
 var wbc_factor_label = document.getElementById("wbc_factor");
 var duration_factor_label = document.getElementById("duration_factor");
@@ -54,6 +55,9 @@ var urine_analysis_factor_label = document.getElementById("urine_analysis_factor
 var rbc_select_factor_label = document.getElementById("rbc_select_factor");
 var wbc_select_factor_label = document.getElementById("wbc_select_factor");
 var culture_factor_label = document.getElementById("culture_factor");
+
+var combined_risk_factor = document.getElementById("risk_factor");
+var adjustment = document.getElementById("adjustment");
 //
 
 var submitInformation = function(){
@@ -105,6 +109,23 @@ var submitInformation = function(){
 
     var culture_risk_factor = culture_factor_app();
     culture_factor_label.innerText = culture_risk_factor;
+
+    var risk_combined = crp_risk_factor * wbc_risk_factor * duration_risk_factor * temp_risk_factor * age_risk_factor * gender_risk_factor * neutrophils_risk_factor * pain_rlq_risk_factor * rebound_tender_risk_factor 
+     local_risk_factor * anorexia_risk_factor * nausea_risk_factor * ua_risk_factor * rbc_select_risk_factor * wbc_select_risk_factor * culture_risk_factor;
+    combined_risk_factor.innerText = risk_combined
+
+    var probability = 0
+    if (risk_combined >= 1) {
+        probability = (1-(1-0.5)/risk_combined)-0.01;
+    }
+    else {
+        probability = (0.5*risk_combined)-0.01;
+    }
+
+    var adjustment_value = app_prob_correction(probability);
+    adjustment.innerText = adjustment_value
+    probability = probability + adjustment_value
+    app_prob.innerText = probability;
 }
 
 
