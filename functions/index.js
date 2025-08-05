@@ -1,3 +1,5 @@
+import { crp_factor_app } from "./appendicitis.js";
+
 var crp = document.getElementById("crp");
 var wbc = document.getElementById("wbc");
 var duration = document.getElementById("duration");

@@ -12,3 +12,5 @@ function crp_factor_app() {
         return 1;
     }
 }
+
+export { crp_factor_app };
