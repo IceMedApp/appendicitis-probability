@@ -35,7 +35,7 @@ function crp_factor() {
 
 var submitInformation = function(){
 
-    app_prob.innerText = crp_factor;
+    app_prob.innerText = crp_factor();
 }
 
 
