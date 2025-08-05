@@ -30,6 +30,16 @@ import {
     probability_final_touches
 } from "./abscess.js";
 
+import { 
+    crp_factor_per,
+    wbc_factor_per,
+    duration_factor_per,
+    temp_factor_per,
+    age_factor_per,
+    gender_factor_per,
+    neutrophils_factor_per
+} from "./perforation.js";
+
 var crp = document.getElementById("crp");
 var wbc = document.getElementById("wbc");
 var duration = document.getElementById("duration");
@@ -92,7 +102,6 @@ var app_prob_before = document.getElementById("app_prob_before");
 
 var combined_risk_factor_abs = document.getElementById("risk_factor_abs");
 var combined_risk_factor_per = document.getElementById("risk_factor_per");
-
 //
 
 function appendicitis_handler() {
@@ -202,9 +211,47 @@ function abscess_handler() {
     abs_prob.innerText = probability_str;
 }
 
+function perforation_handler() {
+    var crp_risk_factor = crp_factor_per();
+    crp_factor_label_per.innerText = crp_risk_factor;
+
+    var wbc_risk_factor = wbc_factor_per();
+    wbc_factor_label_per.innerText = wbc_risk_factor;
+
+    var duration_risk_factor = duration_factor_per();
+    duration_factor_label_per.innerText = duration_risk_factor;
+
+    var temp_risk_factor = temp_factor_per();
+    temperature_factor_label_per.innerText = temp_risk_factor;
+
+    var age_risk_factor = age_factor_per();
+    age_factor_label_per.innerText = age_risk_factor;
+
+    var gender_risk_factor = gender_factor_per();
+    gender_factor_label_per.innerText = gender_risk_factor;
+
+    var neutrophils_risk_factor = neutrophils_factor_per();
+    neutrophils_factor_label_per.innerText = neutrophils_risk_factor;
+
+    var risk_combined = crp_risk_factor * wbc_risk_factor * duration_risk_factor * temp_risk_factor * age_risk_factor * gender_risk_factor * neutrophils_risk_factor;
+    combined_risk_factor_per.innerText = risk_combined
+
+    var probability = 0
+    if (risk_combined >= 1) {
+        probability = 1-((1-0.0824)/risk_combined)
+    }
+    else {
+        probability = 0.0824 * risk_combined
+    }
+
+    var probability_str = probability_final_touches(probability);
+    per_prob.innerText = probability_str;
+}
+
 var submitInformation = function(){
     appendicitis_handler();
     abscess_handler();
+    perforation_handler();
 }
 
 
