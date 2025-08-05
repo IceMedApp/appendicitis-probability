@@ -18,6 +18,11 @@ var culture = document.getElementById("culture");
 var submitButton = document.getElementById("submit");
 var app_prob = document.getElementById("app_prob"); 
 
+// for debugging risk factors
+var crp_factor_label = document.getElementById("crp_factor");
+
+//
+
 function crp_factor() {
     if (crp.value == '') {
         return 1;
@@ -35,7 +40,9 @@ function crp_factor() {
 
 var submitInformation = function(){
 
-    app_prob.innerText = crp_factor();
+    var crp_factor = crp_factor();
+    crp_factor_label.innerText = crp_factor;
+    app_prob.innerText = crp_factor;
 }
 
 
