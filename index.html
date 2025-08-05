@@ -7,25 +7,110 @@
 
 <body>
 <form onsubmit="return false">
-    <div class="form-group">
+    <p>
+        <input id="crp" type="text" placeholder="Type in crp">
         <label for="crp">CRP</label>
-        <input id="crp" type="text">
-    </div>
-    <div class="form-group">
-        <label for="wbc">WBC</label>
+    </p>
+    <p>
         <input id="wbc" type="text">
-    </div>
-    <p>Duration of symptoms</p><input id="duration" type="text"><br>
-    <p>Temperature</p><input id="temperature" type="text"><br>
-    <p>Age</p><input id="age" type="text"><br>
-    <p>Gender</p><select id="gender">
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-        <option value="N/A">N/A</option>
-    </select>
-    <p>Neutrophils</p><input id="neutrophils" type="text"><br>
-    <p>WBC</p><input id="wbc" type="text"><br>
-    <p>WBC</p><input id="wbc" type="text"><br>
+        <label for="wbc">WBC</label>
+    </p>
+    <p>
+        <input id="duration" type="text">
+        <label for="duration">Duration</label>
+    </p>
+    <p>
+        <input id="temperature" type="text">
+        <label for="temperature">Temperature</label>
+    </p>
+    <p>
+        <input id="age" type="text">
+        <label for="age">Age</label>
+    </p>
+    <p>
+        <select id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="N/A">N/A</option>
+        </select>
+        <label for="gender">Gender</label>
+    </p>
+    <p>
+        <input id="neutrophils" type="text">
+        <label for="neutrophils">Neutrophils</label>
+    </p>
+    <p>
+        <select id="pain_rlq">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+            <option value="N/A">N/A</option>
+        </select>
+        <label for="pain_rlq">Pain RLQ</label>
+    </p>
+    <p>
+        <select id="rebound_tender">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+            <option value="N/A">N/A</option>
+        </select>
+        <label for="rebound_tender">Rebound tenderness</label>
+    </p>
+    <p>
+        <select id="localization">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+            <option value="N/A">N/A</option>
+        </select>
+        <label for="localization">Localization</label>
+    </p>
+    <p>
+        <select id="anorexia">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+            <option value="N/A">N/A</option>
+        </select>
+        <label for="anorexia">Anorexia</label>
+    </p>
+    <p>
+        <select id="nausea">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+            <option value="N/A">N/A</option>
+        </select>
+        <label for="nausea">Nausea</label>
+    </p>
+    <p>
+        <select id="urine_analysis">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+            <option value="N/A">N/A</option>
+        </select>
+        <label for="urine_analysis">Urine_analysis</label>
+    </p>
+    <p>
+        <select id="rbc_select">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+            <option value="N/A">N/A</option>
+        </select>
+        <label for="rbc_select">RBC</label>
+    </p>
+    <p>
+        <select id="wbc_select">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+            <option value="N/A">N/A</option>
+        </select>
+        <label for="wbc_select">WBC</label>
+    </p>
+    <p>
+        <select id="culture">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+            <option value="N/A">N/A</option>
+        </select>
+        <label for="culture">Culture</label>
+    </p>
     <input id="submit" type="submit" value="Calculate"><br>
 </form>
 
