@@ -20,16 +20,16 @@ function wbc_factor_app() {
   else if (wbc.value <= 7) {
     return 0.489695087521175
   }
-  else if (wbc.value > 7 && wbc <= 10) {
+  else if (wbc.value > 7 && wbc.value <= 10) {
     return 0.655250440096987
   }
-  else if (wbc.value > 10 && wbc <= 14) {
+  else if (wbc.value > 10 && wbc.value <= 14) {
     return 1.09508850034108
   }
-  else if (wbc.value > 14 && wbc <= 19) {
+  else if (wbc.value > 14 && wbc.value <= 19) {
     return 1.71923165401426
   }
-  else if (wbc.value > 19 && wbc <= 25) {
+  else if (wbc.value > 19 && wbc.value <= 25) {
     return 2.25244010647737
   }
   else if (wbc.value > 25) {

@@ -69,7 +69,7 @@ var submitInformation = function(){
     wbc_factor_label.innerText = wbc_risk_factor;
 
     var duration_risk_factor = duration_factor_app();
-    duration_factor_label.innerText = wbc_risk_factor;
+    duration_factor_label.innerText = duration_risk_factor;
 
     var temp_risk_factor = temp_factor_app();
     temperature_factor_label.innerText = temp_risk_factor;
