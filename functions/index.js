@@ -199,7 +199,7 @@ function abscess_handler() {
     }
 
     var probability_str = probability_final_touches(probability);
-    app_prob.innerText = probability_str;
+    abs_prob.innerText = probability_str;
 }
 
 var submitInformation = function(){

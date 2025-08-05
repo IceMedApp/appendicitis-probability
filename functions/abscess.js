@@ -110,10 +110,10 @@ function age_factor_abs() {
 }
 
 function gender_factor_abs() {
-  if (gender.value == 'Male') {
+  if (gender.value == 'male') {
     return 1.01350193477059
   }
-  else if (gender.value == 'Female') {
+  else if (gender.value == 'female') {
     return 0.927198211624441
   }
   else if (gender.value == 'N/A') {
