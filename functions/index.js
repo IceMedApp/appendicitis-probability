@@ -1,20 +1,21 @@
 var crp = document.getElementById("text-1");
-var submitButton = document.getElementById("button-1"); 
+var submitButton = document.getElementById("button-1");
+var app_prob = document.getElementById("app_prob"); 
 
 
 var submitInformation = function(){
 
     if (crp.value == '') {
-        crp.value = 1;
+        app_prob.value = 1;
     }
     else if (crp.value < 10) {
-        crp.value = 0.741195658058578;
+        app_prob.value = 0.741195658058578;
     }
     else if (crp.value >= 10) {
-        crp.value = 1.17909895565026;
+        app_prob.value = 1.17909895565026;
     }
     else {
-        crp.value = 1;
+        app_prob.value = 1;
     }
 }
 
