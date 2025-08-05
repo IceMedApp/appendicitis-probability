@@ -98,13 +98,13 @@ function age_factor_app() {
 }
 
 function gender_factor_app() {
-  if (gender.value == 'Male') {
+  if (gender.value == "Male") {
     return 1.30908828343121
   }
-  else if (gender.value == 'Female') {
+  else if (gender.value == "Female") {
     return 0.783833827093994
   }
-  else if (gender.value == 'N/A') {
+  else if (gender.value == "N/A") {
     return 1
   }
 }
