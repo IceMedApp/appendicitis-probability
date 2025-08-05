@@ -40,9 +40,9 @@ function crp_factor() {
 
 var submitInformation = function(){
 
-    var crp_factor = crp_factor();
-    crp_factor_label.innerText = crp_factor;
-    app_prob.innerText = crp_factor;
+    var crp_risk_factor = crp_factor();
+    crp_factor_label.innerText = crp_risk_factor;
+    app_prob.innerText = crp_risk_factor;
 }
 
 
