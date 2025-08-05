@@ -11,26 +11,36 @@
         <input id="crp" type="text" placeholder="Type in crp">
         <label for="crp">CRP</label>
         <label id="crp_factor" for="crp"></label>
+        <label id="crp_factor_abs" for="crp"></label>
+        <label id="crp_factor_per" for="crp"></label>
     </p>
     <p>
         <input id="wbc" type="text" placeholder="Type in wbc">
         <label for="wbc">WBC</label>
         <label id="wbc_factor" for="wbc"></label>
+        <label id="wbc_factor_abs" for="wbc"></label>
+        <label id="wbc_factor_per" for="wbc"></label>
     </p>
     <p>
         <input id="duration" type="text" placeholder="Type in duration">
         <label for="duration">Duration of symptoms</label>
         <label id="duration_factor" for="duration"></label>
+        <label id="duration_factor_abs" for="duration"></label>
+        <label id="duration_factor_per" for="duration"></label>
     </p>
     <p>
         <input id="temperature" type="text" placeholder="Type in temperature">
         <label for="temperature">Temperature</label>
         <label id="temperature_factor" for="temperature"></label>
+        <label id="temperature_factor_abs" for="temperature"></label>
+        <label id="temperature_factor_per" for="temperature"></label>
     </p>
     <p>
         <input id="age" type="text" placeholder="Type in age">
         <label for="age">Age</label>
         <label id="age_factor" for="age"></label>
+        <label id="age_factor_abs" for="age"></label>
+        <label id="age_factor_per" for="age"></label>
     </p>
     <p>
         <select id="gender">
@@ -40,11 +50,15 @@
         </select>
         <label for="gender">Gender</label>
         <label id="gender_factor" for="gender"></label>
+        <label id="gender_factor_abs" for="gender"></label>
+        <label id="gender_factor_per" for="gender"></label>
     </p>
     <p>
         <input id="neutrophils" type="text" placeholder="Type in neutrophils">
         <label for="neutrophils">Neutrophils</label>
         <label id="neutrophils_factor" for="neutrophils"></label>
+        <label id="neutrophils_factor_abs" for="neutrophils"></label>
+        <label id="neutrophils_factor_per" for="neutrophils"></label>
     </p>
     <p>
         <select id="pain_rlq">
@@ -131,25 +145,31 @@
 </form>
 
 <div class="row">
-    <div class="column" style="background-color:#aaa;">
-        <h2>Column 1</h2>
-        <p>Some text..</p>
+    <div class="column" style="background-color:#e56c0f;">
+        <h2>Appendicitis</h2>
+        <h4>Combined risk factor</h4>
+        <p id="risk_factor" type="text"></p>
+        <h4>Adjustment</h4>
+        <p id="adjustment" type="text"></p>
+        <h4>Probability before adjustment</h4>
+        <p id="app_prob_before" type="text"></p>
+        <h4>Probability</h4>
+        <p id="app_prob" type="text"></p>
     </div>
-    <div class="column" style="background-color:#bbb;">
-        <h2>Column 2</h2>
-        <p>Some text..</p>
+    <div class="column" style="background-color:#0655f3;">
+        <h2>Abscess</h2>
+        <h4>Combined risk factor</h4>
+        <p id="risk_factor_abs" type="text"></p>
+        <h4>Probability</h4>
+        <p id="abs_prob" type="text"></p>
     </div>
-</div>
-
-<div id="app_prob_block">
-    <h4>Combined risk factor</h4>
-    <p id="risk_factor" type="text"></p>
-    <h4>Adjustment</h4>
-    <p id="adjustment" type="text"></p>
-    <h4>Probability before adjustment</h4>
-    <p id="app_prob_before" type="text"></p>
-    <h4>Probability of appendicits</h4>
-    <p id="app_prob" type="text"></p>
+    <div class="column" style="background-color:#1aea07;">
+        <h2>Perforation</h2>
+        <h4>Combined risk factor</h4>
+        <p id="risk_factor_per" type="text"></p>
+        <h4>Probability</h4>
+        <p id="per_prob" type="text"></p>
+    </div>
 </div>
 
 <script type="module" src="functions/index.js"></script>

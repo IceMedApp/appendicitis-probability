@@ -139,19 +139,6 @@ function neutrophils_factor_abs() {
   }
 }
 
-function abscess_probability(values) {
-  var risk_combined = 1
-  for (var i = 0; i < values.length; i++) {
-    risk_combined = risk_combined * values[i]
-  }
-  if (risk_combined >= 1) {
-    return 1-((1-0.0314)/risk_combined)
-  }
-  else {
-    return 0.0314 * risk_combined
-  }
-}
-
 function probability_final_touches(probability) {
   var result = ''
   if (probability < 0) {
@@ -166,3 +153,14 @@ function probability_final_touches(probability) {
     return Math.ceil(probability * 100) + '%'
   }
 }
+
+export { 
+    crp_factor_abs,
+    wbc_factor_abs,
+    duration_factor_abs,
+    temp_factor_abs,
+    age_factor_abs,
+    gender_factor_abs,
+    neutrophils_factor_abs,
+    probability_final_touches
+};
