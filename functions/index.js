@@ -1,5 +1,5 @@
-var crp = document.getElementById("text-1");
-var submitButton = document.getElementById("button-1");
+var crp = document.getElementById("crp");
+var submitButton = document.getElementById("submit");
 var app_prob = document.getElementById("app_prob"); 
 
 
