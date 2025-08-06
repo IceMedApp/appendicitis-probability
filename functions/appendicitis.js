@@ -229,6 +229,15 @@ function culture_factor_app() {
   }
 }
 
+function app_probability(risk_combined) {
+    if (risk_combined >= 1) {
+        return (1-(1-0.5)/risk_combined)-0.01;
+    }
+    else {
+        return (0.5*risk_combined)-0.01;
+    }
+}
+
 function app_probability_final_touches(probability) {
   if (crp.value < 10 && (wbc.value < 10.1 || duration.value == 3)) {
     return 'Less than 5%'
@@ -349,6 +358,7 @@ export {
     rbc_select_factor_app,
     wbc_select_factor_app,
     culture_factor_app,
+    app_probability,
     app_probability_final_touches,
     app_prob_correction
 };

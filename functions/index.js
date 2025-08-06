@@ -15,6 +15,7 @@ import {
     rbc_select_factor_app,
     wbc_select_factor_app,
     culture_factor_app,
+    app_probability,
     app_probability_final_touches,
     app_prob_correction
 } from "./appendicitis.js";
@@ -81,7 +82,8 @@ var appendix_visible = document.getElementById("appendix_visible");
 
 var ppv_field = document.getElementById("ppv");
 var npv_field = document.getElementById("npv"); 
-var accuracy_field = document.getElementById("accuracy"); 
+var accuracy_field = document.getElementById("accuracy");
+var app_prob_imaging = document.getElementById("app_prob_imaging");
 
 // !!!!!!!!!!!!! for debugging !!!!!!!!!!!!!
 // appendix, abscess and perforation
@@ -183,13 +185,7 @@ function appendicitis_handler() {
     var risk_combined = crp_risk_factor * wbc_risk_factor * duration_risk_factor * temp_risk_factor * age_risk_factor * gender_risk_factor * neutrophils_risk_factor * pain_rlq_risk_factor * rebound_tender_risk_factor * local_risk_factor * anorexia_risk_factor * nausea_risk_factor * ua_risk_factor * rbc_select_risk_factor * wbc_select_risk_factor * culture_risk_factor;
     combined_risk_factor_app.innerText = risk_combined
 
-    var probability = 0
-    if (risk_combined >= 1) {
-        probability = (1-(1-0.5)/risk_combined)-0.01;
-    }
-    else {
-        probability = (0.5*risk_combined)-0.01;
-    }
+    var probability = app_probability(risk_combined);
 
     app_prob_before.innerText = probability;
     var adjustment_value = app_prob_correction(probability);
@@ -301,10 +297,22 @@ function imaging_handler() {
     accuracy_field.innerText = accuracy_imaging_value;
 }
 
+function visible_handler() {
+    var increased_prevelance_value = increased_prevelance();
+    visible_prevelance_label.innerText = increased_prevelance_value;
+
+    var risk_with_increase = parseFloat(combined_risk_factor_app.innerText) * increased_prevelance_value;
+
+    var probability = app_probability(risk_with_increase);
+
+    var probability_str = probability_final_touches(probability);
+    app_prob_imaging.innerText = probability_str;
+}
+
 
 var calculate_imaging = function(){
     imaging_handler();
-    //visible_handler();
+    visible_handler();
 }
 
 submitImagingButton.onclick = calculate_imaging;
