@@ -53,15 +53,15 @@ function increased_prevelance() {
 }
 
 function ppv_imaging(sensitivity, specificity) {
-  return (sensitivity*app_prob_hidden.value)/((sensitivity*app_prob_hidden.value)+(1-specificity)*(1-app_prob_hidden.value))
+  return (sensitivity*app_prob_hidden.innerText)/((sensitivity*app_prob_hidden.innerText)+(1-specificity)*(1-app_prob_hidden.innerText))
 }
 
 function npv_imaging(sensitivity, specificity) {
-  return (specificity*(1-app_prob_hidden.value))/((1-sensitivity)*app_prob_hidden.value+specificity*(1-app_prob_hidden.value))
+  return (specificity*(1-app_prob_hidden.innerText))/((1-sensitivity)*app_prob_hidden.innerText+specificity*(1-app_prob_hidden.innerText))
 }
 
 function accuracy_imaging(sensitivity, specificity) {
-  return sensitivity*app_prob_hidden.value+specificity*(1-app_prob_hidden.value)
+  return sensitivity*app_prob_hidden.innerText+specificity*(1-app_prob_hidden.innerText)
 }
 
 export { 

@@ -193,6 +193,7 @@ function appendicitis_handler() {
     }
 
     app_prob_before.innerText = probability;
+    app_prob_hidden.innerText = probability;
     var adjustment_value = app_prob_correction(probability);
     adjustment.innerText = adjustment_value
     probability = probability + adjustment_value
