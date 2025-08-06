@@ -6,6 +6,7 @@
 </head>
 
 <body>
+<h2>Appendicitis Calculation</h2>
 <form onsubmit="return false">
     <p>
         <input id="crp" type="text" placeholder="Type in crp">
@@ -144,7 +145,7 @@
     <input id="submit" type="submit" value="Calculate"><br>
 </form>
 
-<br>
+<div id="app_prob_hidden"></div>
 <div class="row">
     <div class="column" style="background-color:#fc6f03;">
         <h2>Appendicitis</h2>
@@ -172,6 +173,51 @@
         <p id="per_prob" type="text"></p>
     </div>
 </div>
+
+<br>
+<h2>Imaging</h2>
+<form onsubmit="return false">
+    <p>
+        <select id="imaging">
+            <option value="good">Good ultrasound</option>
+            <option value="poor">Poor ultrasound</option>
+            <option value="ct">CT</option>
+        </select>
+        <label for="imaging">Urine analysis</label>
+        <label id="imaging_sensitivity" for="imaging"></label>
+        <label id="imaging_specificity" for="imaging"></label>
+    </p>
+    <p>
+        <select id="appendix_visible">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+            <option value="N/A">N/A</option>
+        </select>
+        <label for="appendix_visible">Urine analysis</label>
+        <label id="visible_prevelance" for="appendix_visible"></label>
+    </p>
+    <input id="submit_imaging" type="submit" value="Calculate"><br>
+</form>
+
+<div class="row">
+    <div class="column" style="background-color:#f721de;">
+        <h2>Imaging</h2>
+        <h4>PPV</h4>
+        <p id="ppv" type="text"></p>
+        <h4>NPV</h4>
+        <p id="npv" type="text"></p>
+        <h4>Accuracy</h4>
+        <p id="accuracy" type="text"></p>
+    </div>
+    <div class="column" style="background-color:#660ea1;">
+        <h2>Increased prevelance</h2>
+        <h4>Increased prevelance factor</h4>
+        <p id="increased_prevelance" type="text"></p>
+        <h4>Appendicitis probability</h4>
+        <p id="app_prob_imaging" type="text"></p>
+    </div>
+</div>
+
 
 <script type="module" src="functions/index.js"></script>
 

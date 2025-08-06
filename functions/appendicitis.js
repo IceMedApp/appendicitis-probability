@@ -229,6 +229,61 @@ function culture_factor_app() {
   }
 }
 
+function combined_risk_factor() {
+    var crp_risk_factor = crp_factor_app();
+    crp_factor_label.innerText = crp_risk_factor;
+
+    var wbc_risk_factor = wbc_factor_app();
+    wbc_factor_label.innerText = wbc_risk_factor;
+
+    var duration_risk_factor = duration_factor_app();
+    duration_factor_label.innerText = duration_risk_factor;
+
+    var temp_risk_factor = temp_factor_app();
+    temperature_factor_label.innerText = temp_risk_factor;
+
+    var age_risk_factor = age_factor_app();
+    age_factor_label.innerText = age_risk_factor;
+
+    var gender_risk_factor = gender_factor_app();
+    gender_factor_label.innerText = gender_risk_factor;
+
+    var neutrophils_risk_factor = neutrophils_factor_app();
+    neutrophils_factor_label.innerText = neutrophils_risk_factor;
+
+    var pain_rlq_risk_factor = pain_factor_app();
+    pain_rlq_factor_label.innerText = pain_rlq_risk_factor;
+
+    var rebound_tender_risk_factor = rbd_tender_factor_app();
+    rebound_tender_factor_label.innerText = rebound_tender_risk_factor;
+
+    var local_risk_factor = local_factor_app();
+    localization_factor_label.innerText = local_risk_factor;
+
+    var anorexia_risk_factor = anorexia_factor_app();
+    anorexia_factor_label.innerText = anorexia_risk_factor;
+
+    var nausea_risk_factor = nausea_factor_app();
+    nausea_factor_label.innerText = nausea_risk_factor;
+
+    var ua_risk_factor = ua_factor_app();
+    urine_analysis_factor_label.innerText = ua_risk_factor;
+
+    var rbc_select_risk_factor = rbc_select_factor_app();
+    rbc_select_factor_label.innerText = rbc_select_risk_factor;
+
+    var wbc_select_risk_factor = wbc_select_factor_app();
+    wbc_select_factor_label.innerText = wbc_select_risk_factor;
+
+    var culture_risk_factor = culture_factor_app();
+    culture_factor_label.innerText = culture_risk_factor;
+
+    var risk_combined = crp_risk_factor * wbc_risk_factor * duration_risk_factor * temp_risk_factor * age_risk_factor * gender_risk_factor * neutrophils_risk_factor * pain_rlq_risk_factor * rebound_tender_risk_factor 
+        local_risk_factor * anorexia_risk_factor * nausea_risk_factor * ua_risk_factor * rbc_select_risk_factor * wbc_select_risk_factor * culture_risk_factor;
+    combined_risk_factor.innerText = risk_combined
+    return risk_combined
+}
+
 function app_probability_final_touches(probability) {
   if (crp.value < 10 && (wbc.value < 10.1 || duration.value == 3)) {
     return 'Less than 5%'
@@ -349,6 +404,7 @@ export {
     rbc_select_factor_app,
     wbc_select_factor_app,
     culture_factor_app,
+    combined_risk_factor,
     app_probability_final_touches,
     app_prob_correction
 };
