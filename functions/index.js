@@ -76,7 +76,7 @@ var abs_prob = document.getElementById("abs_prob");
 var per_prob = document.getElementById("per_prob"); 
 
 // imaging
-var submitButton = document.getElementById("submit_imaging");
+var submitImagingButton = document.getElementById("submit_imaging");
 var imaging = document.getElementById("imaging");
 var appendix_visible = document.getElementById("appendix_visible");
 
@@ -256,8 +256,8 @@ function imaging_handler() {
 
 var calculate_imaging = function(){
     imaging_handler();
-    visible_handler();
+    //visible_handler();
 }
 
-submitButton.onclick = calculate_probabilities;
+submitImagingButton.onclick = calculate_imaging;
 
