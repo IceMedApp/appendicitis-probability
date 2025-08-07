@@ -8,3 +8,7 @@ test('risk below 1', () => {
 test('risk over 1', () => {
   expect(app_probability(2.5)).toBe(0.79)
 })
+
+test('risk = 1', () => {
+  expect(app_probability(1)).toBe(0.49)
+})
