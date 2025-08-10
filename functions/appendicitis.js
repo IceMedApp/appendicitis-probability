@@ -13,7 +13,7 @@ function crp_factor_app(crp) {
     }
 }
 
-function wbc_factor_app() {
+function wbc_factor_app(wbc) {
   if (wbc.value == '') {
     return 1
   }
@@ -37,7 +37,7 @@ function wbc_factor_app() {
   }
 }
 
-function duration_factor_app() {
+function duration_factor_app(duration) {
   if (duration.value == '') {
     return 1
   }
@@ -58,7 +58,7 @@ function duration_factor_app() {
   }
 }
 
-function temp_factor_app() {
+function temp_factor_app(temperature) {
   if (temperature.value == '') {
     return 1
   }
@@ -79,7 +79,7 @@ function temp_factor_app() {
   }
 }
 
-function age_factor_app() {
+function age_factor_app(age) {
   if (age.value >= 0 && age.value <= 10) {
     return 1.61055486024197
   }
@@ -97,7 +97,7 @@ function age_factor_app() {
   }
 }
 
-function gender_factor_app() {
+function gender_factor_app(gender) {
   if (gender.value == 'male') {
     return 1.30908828343121
   }
@@ -109,7 +109,7 @@ function gender_factor_app() {
   }
 }
 
-function neutrophils_factor_app() {
+function neutrophils_factor_app(neutrophils) {
   if (neutrophils.value == '') {
     return 1
   }
@@ -121,7 +121,7 @@ function neutrophils_factor_app() {
   }
 }
 
-function pain_factor_app() {
+function pain_factor_app(pain_rlq) {
   if (pain_rlq.value == 'N/A') {
     return 1
   }
@@ -133,7 +133,7 @@ function pain_factor_app() {
   }
 }
 
-function rbd_tender_factor_app() {
+function rbd_tender_factor_app(rebound_tender) {
   if (rebound_tender.value == 'N/A') {
     return 1
   }
@@ -145,7 +145,7 @@ function rbd_tender_factor_app() {
   }
 }
 
-function local_factor_app() {
+function local_factor_app(localization) {
   if (localization.value == 'N/A') {
     return 1
   }
@@ -157,7 +157,7 @@ function local_factor_app() {
   }
 }
 
-function anorexia_factor_app() {
+function anorexia_factor_app(anorexia) {
   if (anorexia.value == 'N/A') {
     return 1
   }
@@ -169,7 +169,7 @@ function anorexia_factor_app() {
   }
 }
 
-function nausea_factor_app() {
+function nausea_factor_app(nausea) {
   if (nausea.value == 'N/A') {
     return 1
   }
@@ -181,7 +181,7 @@ function nausea_factor_app() {
   }
 }
 
-function ua_factor_app() {
+function ua_factor_app(urine_analysis) {
   if (urine_analysis.value == 'N/A') {
     return 1
   }
@@ -193,7 +193,7 @@ function ua_factor_app() {
   }
 }
 
-function rbc_select_factor_app() {
+function rbc_select_factor_app(rbc_select) {
   if (rbc_select.value == 'N/A') {
     return 1
   }
@@ -205,7 +205,7 @@ function rbc_select_factor_app() {
   }
 }
 
-function wbc_select_factor_app() {
+function wbc_select_factor_app(wbc_select) {
   if (wbc_select.value == 'N/A') {
     return 1
   }
@@ -217,7 +217,7 @@ function wbc_select_factor_app() {
   }
 }
 
-function culture_factor_app() {
+function culture_factor_app(culture) {
   if (culture.value == 'N/A') {
     return 1
   }
@@ -238,7 +238,7 @@ function app_probability(risk_combined) {
     }
 }
 
-function app_probability_final_touches(probability) {
+function app_probability_final_touches(crp, wbc, duration, probability) {
   if (crp.value < 10 && (wbc.value < 10.1 || duration.value == 3)) {
     return 'Less than 5%'
   }
