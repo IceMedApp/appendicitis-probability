@@ -198,25 +198,25 @@ function appendicitis_handler() {
 }
 
 function abscess_handler() {
-    var crp_risk_factor = crp_factor_abs();
+    var crp_risk_factor = crp_factor_abs(crp);
     crp_factor_label_abs.innerText = crp_risk_factor;
 
-    var wbc_risk_factor = wbc_factor_abs();
+    var wbc_risk_factor = wbc_factor_abs(wbc);
     wbc_factor_label_abs.innerText = wbc_risk_factor;
 
-    var duration_risk_factor = duration_factor_abs();
+    var duration_risk_factor = duration_factor_abs(duration);
     duration_factor_label_abs.innerText = duration_risk_factor;
 
-    var temp_risk_factor = temp_factor_abs();
+    var temp_risk_factor = temp_factor_abs(temperature);
     temperature_factor_label_abs.innerText = temp_risk_factor;
 
-    var age_risk_factor = age_factor_abs();
+    var age_risk_factor = age_factor_abs(age);
     age_factor_label_abs.innerText = age_risk_factor;
 
-    var gender_risk_factor = gender_factor_abs();
+    var gender_risk_factor = gender_factor_abs(gender);
     gender_factor_label_abs.innerText = gender_risk_factor;
 
-    var neutrophils_risk_factor = neutrophils_factor_abs();
+    var neutrophils_risk_factor = neutrophils_factor_abs(neutrophils);
     neutrophils_factor_label_abs.innerText = neutrophils_risk_factor;
 
     var risk_combined = crp_risk_factor * wbc_risk_factor * duration_risk_factor * temp_risk_factor * age_risk_factor * gender_risk_factor * neutrophils_risk_factor;
@@ -235,25 +235,25 @@ function abscess_handler() {
 }
 
 function perforation_handler() {
-    var crp_risk_factor = crp_factor_per();
+    var crp_risk_factor = crp_factor_per(crp);
     crp_factor_label_per.innerText = crp_risk_factor;
 
-    var wbc_risk_factor = wbc_factor_per();
+    var wbc_risk_factor = wbc_factor_per(wbc);
     wbc_factor_label_per.innerText = wbc_risk_factor;
 
-    var duration_risk_factor = duration_factor_per();
+    var duration_risk_factor = duration_factor_per(duration);
     duration_factor_label_per.innerText = duration_risk_factor;
 
-    var temp_risk_factor = temp_factor_per();
+    var temp_risk_factor = temp_factor_per(temperature);
     temperature_factor_label_per.innerText = temp_risk_factor;
 
-    var age_risk_factor = age_factor_per();
+    var age_risk_factor = age_factor_per(age);
     age_factor_label_per.innerText = age_risk_factor;
 
-    var gender_risk_factor = gender_factor_per();
+    var gender_risk_factor = gender_factor_per(gender);
     gender_factor_label_per.innerText = gender_risk_factor;
 
-    var neutrophils_risk_factor = neutrophils_factor_per();
+    var neutrophils_risk_factor = neutrophils_factor_per(neutrophils);
     neutrophils_factor_label_per.innerText = neutrophils_risk_factor;
 
     var risk_combined = crp_risk_factor * wbc_risk_factor * duration_risk_factor * temp_risk_factor * age_risk_factor * gender_risk_factor * neutrophils_risk_factor;

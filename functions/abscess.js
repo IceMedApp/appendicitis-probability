@@ -1,4 +1,4 @@
-function crp_factor_abs() {
+function crp_factor_abs(crp) {
   if (crp.value == '') {
     return 1
   }
@@ -25,7 +25,7 @@ function crp_factor_abs() {
   }
 }
 
-function wbc_factor_abs() {
+function wbc_factor_abs(wbc) {
   if (wbc.value == '') {
     return 1
   }
@@ -49,7 +49,7 @@ function wbc_factor_abs() {
   }
 }
 
-function duration_factor_abs() {
+function duration_factor_abs(duration) {
   if (duration.value == '') {
     return 1
   }
@@ -70,7 +70,7 @@ function duration_factor_abs() {
   }
 }
 
-function temp_factor_abs() {
+function temp_factor_abs(temperature) {
   if (temperature.value == '') {
     return 1
   }
@@ -91,7 +91,7 @@ function temp_factor_abs() {
   }
 }
 
-function age_factor_abs() {
+function age_factor_abs(age) {
   if (age.value >= 0 && age.value <= 10) {
     return 1.10184108527132
   }
@@ -109,7 +109,7 @@ function age_factor_abs() {
   }
 }
 
-function gender_factor_abs() {
+function gender_factor_abs(gender) {
   if (gender.value == 'male') {
     return 1.01350193477059
   }
@@ -121,7 +121,7 @@ function gender_factor_abs() {
   }
 }
 
-function neutrophils_factor_abs() {
+function neutrophils_factor_abs(neutrophils) {
   if (neutrophils.value == '') {
     return 1
   }
