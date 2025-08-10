@@ -47,6 +47,9 @@ function wbc_factor_abs(wbc) {
   else if (wbc.value > 25) {
     return 1.03731060606061
   }
+  else {
+    return 1;
+  }
 }
 
 function duration_factor_abs(duration) {
@@ -67,6 +70,9 @@ function duration_factor_abs(duration) {
   }
   else if (duration.value > 4) {
     return 1.19396766169154
+  }
+  else {
+    return 1;
   }
 }
 
@@ -89,6 +95,9 @@ function temp_factor_abs(temperature) {
   else if (temperature.value > 38) {
     return 1.15
   }
+  else {
+    return 1;
+  }
 }
 
 function age_factor_abs(age) {
@@ -106,6 +115,9 @@ function age_factor_abs(age) {
   }
   else if (age.value > 40) {
     return 1.00
+  }
+  else {
+    return 1;
   }
 }
 
@@ -136,6 +148,9 @@ function neutrophils_factor_abs(neutrophils) {
   }
   else if (neutrophils.value > 85) {
     return 1.04366028708134
+  }
+  else {
+    return 1;
   }
 }
 
