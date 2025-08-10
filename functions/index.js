@@ -134,7 +134,7 @@ var visible_prevelance_label = document.getElementById("visible_prevelance");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!
 
 function appendicitis_handler() {
-    var crp_risk_factor = crp_factor_app();
+    var crp_risk_factor = crp_factor_app(crp);
     crp_factor_label.innerText = crp_risk_factor;
 
     var wbc_risk_factor = wbc_factor_app();
