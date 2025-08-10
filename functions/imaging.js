@@ -1,4 +1,4 @@
-function sensitivity() {
+function sensitivity(imaging) {
   if (imaging.value == 'good') {
     return 0.9032
   }
@@ -10,7 +10,7 @@ function sensitivity() {
   }
 }
 
-function specificity() {
+function specificity(imaging) {
   if (imaging.value == 'good') {
     return 0.9529
   }
@@ -22,7 +22,7 @@ function specificity() {
   }
 }
 
-function increased_prevelance() {
+function increased_prevelance(imaging, appendix_visible) {
   if (imaging.value == 'good' && appendix_visible.value == 'N/A') {
     return 1.0287804878
   }
@@ -52,17 +52,17 @@ function increased_prevelance() {
   }
 }
 
-function ppv_imaging(sensitivity, specificity) {
+function ppv_imaging(sensitivity, specificity, app_prob_hidden) {
     var app_prob = parseFloat(app_prob_hidden.innerText);
     return (sensitivity*app_prob)/((sensitivity*app_prob)+(1-specificity)*(1-app_prob))
 }
 
-function npv_imaging(sensitivity, specificity) {
+function npv_imaging(sensitivity, specificity, app_prob_hidden) {
     var app_prob = parseFloat(app_prob_hidden.innerText);
     return (specificity*(1-app_prob))/((1-sensitivity)*app_prob+specificity*(1-app_prob))
 }
 
-function accuracy_imaging(sensitivity, specificity) {
+function accuracy_imaging(sensitivity, specificity, app_prob_hidden) {
     var app_prob = parseFloat(app_prob_hidden.innerText);
     return sensitivity*app_prob+specificity*(1-app_prob)
 }

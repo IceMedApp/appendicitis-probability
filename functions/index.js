@@ -281,24 +281,24 @@ var calculate_probabilities = function(){
 submitButton.onclick = calculate_probabilities;
 
 function imaging_handler() {
-    var imaging_sensitivity = sensitivity();
+    var imaging_sensitivity = sensitivity(imaging);
     imaging_sensitivity_label.innerText = imaging_sensitivity;
 
-    var imaging_specificity = specificity();
+    var imaging_specificity = specificity(imaging);
     imaging_specificity_label.innerText = imaging_specificity;
 
-    var ppv_imaging_value = ppv_imaging(imaging_sensitivity, imaging_specificity);
+    var ppv_imaging_value = ppv_imaging(imaging_sensitivity, imaging_specificity, app_prob_hidden);
     ppv_field.innerText = ppv_imaging_value;
 
-    var npv_imaging_value = npv_imaging(imaging_sensitivity, imaging_specificity);
+    var npv_imaging_value = npv_imaging(imaging_sensitivity, imaging_specificity, app_prob_hidden);
     npv_field.innerText = npv_imaging_value;
 
-    var accuracy_imaging_value = accuracy_imaging(imaging_sensitivity, imaging_specificity);
+    var accuracy_imaging_value = accuracy_imaging(imaging_sensitivity, imaging_specificity, app_prob_hidden);
     accuracy_field.innerText = accuracy_imaging_value;
 }
 
 function visible_handler() {
-    var increased_prevelance_value = increased_prevelance();
+    var increased_prevelance_value = increased_prevelance(imaging, appendix_visible);
     visible_prevelance_label.innerText = increased_prevelance_value;
 
     var risk_with_increase = parseFloat(combined_risk_factor_app.innerText) * increased_prevelance_value;
