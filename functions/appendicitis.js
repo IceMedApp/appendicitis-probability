@@ -1,4 +1,4 @@
-function crp_factor_app() {
+function crp_factor_app(crp) {
     if (crp.value == '') {
         return 1;
     }
