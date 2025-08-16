@@ -127,12 +127,12 @@ test('duration not an int', () => {
 
 test('duration empty string', () => {
   const duration = new Risk_factor_item('');
-  expect(crp_factor_app(duration)).toBe(1)
+  expect(duration_factor_app(duration)).toBe(1)
 })
 
 test('duration nonsense string', () => {
   const duration = new Risk_factor_item('no idea');
-  expect(crp_factor_app(duration)).toBe(1)
+  expect(duration_factor_app(duration)).toBe(1)
 })
 
 // temp_factor_app
@@ -207,7 +207,7 @@ test('age nonsense string', () => {
   expect(age_factor_app(age)).toBe(1)
 })
 
-// duration_factor_app
+// gender_factor_app
 test('gender = male', () => {
   const gender = new Risk_factor_item('male');
   expect(gender_factor_app(gender)).toBe(1.30908828343121)
@@ -537,6 +537,3 @@ test('probability > 0.91 ', () => {
 test('probability random string ', () => {
   expect(app_prob_correction('je ne sais pas')).toBe(0)
 })
-
-
-

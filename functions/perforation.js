@@ -101,7 +101,10 @@ function temp_factor_per(temperature) {
 }
 
 function age_factor_per(age) {
-  if (age.value >= 0 && age.value <= 10) {
+  if (age.value == '') {
+    return 1
+  }
+  else if (age.value >= 0 && age.value <= 10) {
     return 1.33121916842847
   }
   else if (age.value > 10 && age.value <= 20) {

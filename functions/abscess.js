@@ -101,7 +101,10 @@ function temp_factor_abs(temperature) {
 }
 
 function age_factor_abs(age) {
-  if (age.value >= 0 && age.value <= 10) {
+  if (age.value == '') {
+    return 1
+  }
+  else if (age.value >= 0 && age.value <= 10) {
     return 1.10184108527132
   }
   else if (age.value > 10 && age.value <= 20) {
