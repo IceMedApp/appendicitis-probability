@@ -88,12 +88,10 @@ var app_prob_imaging = document.getElementById("app_prob_imaging");
 // !!!!!!!!!!!!! for debugging !!!!!!!!!!!!!
 // appendix, abscess and perforation
 
-var combined_risk_factor_app = document.getElementById("risk_factor");
+var combined_risk_factor_hidden_app = document.getElementById("risk_factor_hidden");
 var adjustment = document.getElementById("adjustment");
 var app_prob_before = document.getElementById("app_prob_before");
 
-var combined_risk_factor_abs = document.getElementById("risk_factor_abs");
-var combined_risk_factor_per = document.getElementById("risk_factor_per");
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -116,7 +114,7 @@ function appendicitis_handler() {
     var culture_risk_factor = culture_factor_app(culture);
 
     var risk_combined = crp_risk_factor * wbc_risk_factor * duration_risk_factor * temp_risk_factor * age_risk_factor * gender_risk_factor * neutrophils_risk_factor * pain_rlq_risk_factor * rebound_tender_risk_factor * local_risk_factor * anorexia_risk_factor * nausea_risk_factor * ua_risk_factor * rbc_select_risk_factor * wbc_select_risk_factor * culture_risk_factor;
-    combined_risk_factor_app.innerText = risk_combined
+    combined_risk_factor_hidden_app.innerText = risk_combined
 
     var probability = app_probability(risk_combined);
 
@@ -140,7 +138,6 @@ function abscess_handler() {
     var neutrophils_risk_factor = neutrophils_factor_abs(neutrophils);
 
     var risk_combined = crp_risk_factor * wbc_risk_factor * duration_risk_factor * temp_risk_factor * age_risk_factor * gender_risk_factor * neutrophils_risk_factor;
-    combined_risk_factor_abs.innerText = risk_combined
 
     var probability = 0
     if (risk_combined >= 1) {
@@ -164,7 +161,6 @@ function perforation_handler() {
     var neutrophils_risk_factor = neutrophils_factor_per(neutrophils);
 
     var risk_combined = crp_risk_factor * wbc_risk_factor * duration_risk_factor * temp_risk_factor * age_risk_factor * gender_risk_factor * neutrophils_risk_factor;
-    combined_risk_factor_per.innerText = risk_combined
 
     var probability = 0
     if (risk_combined >= 1) {
@@ -204,7 +200,7 @@ function imaging_handler() {
 function visible_handler() {
     var increased_prevelance_value = increased_prevelance(imaging, appendix_visible);
 
-    var risk_with_increase = parseFloat(combined_risk_factor_app.innerText) * increased_prevelance_value;
+    var risk_with_increase = parseFloat(combined_risk_factor_hidden_app.innerText) * increased_prevelance_value;
 
     var probability = app_probability(risk_with_increase);
 
