@@ -87,38 +87,6 @@ var app_prob_imaging = document.getElementById("app_prob_imaging");
 
 // !!!!!!!!!!!!! for debugging !!!!!!!!!!!!!
 // appendix, abscess and perforation
-var crp_factor_label = document.getElementById("crp_factor");
-var wbc_factor_label = document.getElementById("wbc_factor");
-var duration_factor_label = document.getElementById("duration_factor");
-var temperature_factor_label = document.getElementById("temperature_factor");
-var age_factor_label = document.getElementById("age_factor");
-var gender_factor_label = document.getElementById("gender_factor");
-var neutrophils_factor_label = document.getElementById("neutrophils_factor");
-var pain_rlq_factor_label = document.getElementById("pain_rlq_factor");
-var rebound_tender_factor_label = document.getElementById("rebound_tender_factor");
-var localization_factor_label = document.getElementById("localization_factor");
-var anorexia_factor_label = document.getElementById("anorexia_factor");
-var nausea_factor_label = document.getElementById("nausea_factor");
-var urine_analysis_factor_label = document.getElementById("urine_analysis_factor");
-var rbc_select_factor_label = document.getElementById("rbc_select_factor");
-var wbc_select_factor_label = document.getElementById("wbc_select_factor");
-var culture_factor_label = document.getElementById("culture_factor");
-
-var crp_factor_label_abs = document.getElementById("crp_factor_abs");
-var wbc_factor_label_abs = document.getElementById("wbc_factor_abs");
-var duration_factor_label_abs = document.getElementById("duration_factor_abs");
-var temperature_factor_label_abs = document.getElementById("temperature_factor_abs");
-var age_factor_label_abs = document.getElementById("age_factor_abs");
-var gender_factor_label_abs = document.getElementById("gender_factor_abs");
-var neutrophils_factor_label_abs = document.getElementById("neutrophils_factor_abs");
-
-var crp_factor_label_per = document.getElementById("crp_factor_per");
-var wbc_factor_label_per = document.getElementById("wbc_factor_per");
-var duration_factor_label_per = document.getElementById("duration_factor_per");
-var temperature_factor_label_per = document.getElementById("temperature_factor_per");
-var age_factor_label_per = document.getElementById("age_factor_per");
-var gender_factor_label_per = document.getElementById("gender_factor_per");
-var neutrophils_factor_label_per = document.getElementById("neutrophils_factor_per");
 
 var combined_risk_factor_app = document.getElementById("risk_factor");
 var adjustment = document.getElementById("adjustment");
@@ -127,60 +95,25 @@ var app_prob_before = document.getElementById("app_prob_before");
 var combined_risk_factor_abs = document.getElementById("risk_factor_abs");
 var combined_risk_factor_per = document.getElementById("risk_factor_per");
 
-// imaging
-var imaging_sensitivity_label = document.getElementById("imaging_sensitivity");
-var imaging_specificity_label = document.getElementById("imaging_specificity");
-var visible_prevelance_label = document.getElementById("visible_prevelance");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!
 
 function appendicitis_handler() {
     var crp_risk_factor = crp_factor_app(crp);
-    crp_factor_label.innerText = crp_risk_factor;
-
     var wbc_risk_factor = wbc_factor_app(wbc);
-    wbc_factor_label.innerText = wbc_risk_factor;
-
     var duration_risk_factor = duration_factor_app(duration);
-    duration_factor_label.innerText = duration_risk_factor;
-
     var temp_risk_factor = temp_factor_app(temperature);
-    temperature_factor_label.innerText = temp_risk_factor;
-
     var age_risk_factor = age_factor_app(age);
-    age_factor_label.innerText = age_risk_factor;
-
     var gender_risk_factor = gender_factor_app(gender);
-    gender_factor_label.innerText = gender_risk_factor;
-
     var neutrophils_risk_factor = neutrophils_factor_app(neutrophils);
-    neutrophils_factor_label.innerText = neutrophils_risk_factor;
-
     var pain_rlq_risk_factor = pain_factor_app(pain_rlq);
-    pain_rlq_factor_label.innerText = pain_rlq_risk_factor;
-
     var rebound_tender_risk_factor = rbd_tender_factor_app(rebound_tender);
-    rebound_tender_factor_label.innerText = rebound_tender_risk_factor;
-
     var local_risk_factor = local_factor_app(localization);
-    localization_factor_label.innerText = local_risk_factor;
-
     var anorexia_risk_factor = anorexia_factor_app(anorexia);
-    anorexia_factor_label.innerText = anorexia_risk_factor;
-
     var nausea_risk_factor = nausea_factor_app(nausea);
-    nausea_factor_label.innerText = nausea_risk_factor;
-
     var ua_risk_factor = ua_factor_app(urine_analysis);
-    urine_analysis_factor_label.innerText = ua_risk_factor;
-
     var rbc_select_risk_factor = rbc_select_factor_app(rbc_select);
-    rbc_select_factor_label.innerText = rbc_select_risk_factor;
-
     var wbc_select_risk_factor = wbc_select_factor_app(wbc_select);
-    wbc_select_factor_label.innerText = wbc_select_risk_factor;
-
     var culture_risk_factor = culture_factor_app(culture);
-    culture_factor_label.innerText = culture_risk_factor;
 
     var risk_combined = crp_risk_factor * wbc_risk_factor * duration_risk_factor * temp_risk_factor * age_risk_factor * gender_risk_factor * neutrophils_risk_factor * pain_rlq_risk_factor * rebound_tender_risk_factor * local_risk_factor * anorexia_risk_factor * nausea_risk_factor * ua_risk_factor * rbc_select_risk_factor * wbc_select_risk_factor * culture_risk_factor;
     combined_risk_factor_app.innerText = risk_combined
@@ -199,25 +132,12 @@ function appendicitis_handler() {
 
 function abscess_handler() {
     var crp_risk_factor = crp_factor_abs(crp);
-    crp_factor_label_abs.innerText = crp_risk_factor;
-
     var wbc_risk_factor = wbc_factor_abs(wbc);
-    wbc_factor_label_abs.innerText = wbc_risk_factor;
-
     var duration_risk_factor = duration_factor_abs(duration);
-    duration_factor_label_abs.innerText = duration_risk_factor;
-
     var temp_risk_factor = temp_factor_abs(temperature);
-    temperature_factor_label_abs.innerText = temp_risk_factor;
-
     var age_risk_factor = age_factor_abs(age);
-    age_factor_label_abs.innerText = age_risk_factor;
-
     var gender_risk_factor = gender_factor_abs(gender);
-    gender_factor_label_abs.innerText = gender_risk_factor;
-
     var neutrophils_risk_factor = neutrophils_factor_abs(neutrophils);
-    neutrophils_factor_label_abs.innerText = neutrophils_risk_factor;
 
     var risk_combined = crp_risk_factor * wbc_risk_factor * duration_risk_factor * temp_risk_factor * age_risk_factor * gender_risk_factor * neutrophils_risk_factor;
     combined_risk_factor_abs.innerText = risk_combined
@@ -236,25 +156,12 @@ function abscess_handler() {
 
 function perforation_handler() {
     var crp_risk_factor = crp_factor_per(crp);
-    crp_factor_label_per.innerText = crp_risk_factor;
-
     var wbc_risk_factor = wbc_factor_per(wbc);
-    wbc_factor_label_per.innerText = wbc_risk_factor;
-
     var duration_risk_factor = duration_factor_per(duration);
-    duration_factor_label_per.innerText = duration_risk_factor;
-
     var temp_risk_factor = temp_factor_per(temperature);
-    temperature_factor_label_per.innerText = temp_risk_factor;
-
     var age_risk_factor = age_factor_per(age);
-    age_factor_label_per.innerText = age_risk_factor;
-
     var gender_risk_factor = gender_factor_per(gender);
-    gender_factor_label_per.innerText = gender_risk_factor;
-
     var neutrophils_risk_factor = neutrophils_factor_per(neutrophils);
-    neutrophils_factor_label_per.innerText = neutrophils_risk_factor;
 
     var risk_combined = crp_risk_factor * wbc_risk_factor * duration_risk_factor * temp_risk_factor * age_risk_factor * gender_risk_factor * neutrophils_risk_factor;
     combined_risk_factor_per.innerText = risk_combined
@@ -282,10 +189,7 @@ submitButton.onclick = calculate_probabilities;
 
 function imaging_handler() {
     var imaging_sensitivity = sensitivity(imaging);
-    imaging_sensitivity_label.innerText = imaging_sensitivity;
-
     var imaging_specificity = specificity(imaging);
-    imaging_specificity_label.innerText = imaging_specificity;
 
     var ppv_imaging_value = ppv_imaging(imaging_sensitivity, imaging_specificity, app_prob_hidden);
     ppv_field.innerText = ppv_imaging_value;
@@ -299,7 +203,6 @@ function imaging_handler() {
 
 function visible_handler() {
     var increased_prevelance_value = increased_prevelance(imaging, appendix_visible);
-    visible_prevelance_label.innerText = increased_prevelance_value;
 
     var risk_with_increase = parseFloat(combined_risk_factor_app.innerText) * increased_prevelance_value;
 
