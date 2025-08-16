@@ -85,15 +85,11 @@ var npv_field = document.getElementById("npv");
 var accuracy_field = document.getElementById("accuracy");
 var app_prob_imaging = document.getElementById("app_prob_imaging");
 
-// !!!!!!!!!!!!! for debugging !!!!!!!!!!!!!
-// appendix, abscess and perforation
-
+// appendix
 var combined_risk_factor_hidden_app = document.getElementById("risk_factor_hidden");
 var adjustment = document.getElementById("adjustment");
 var app_prob_before = document.getElementById("app_prob_before");
 
-
-// !!!!!!!!!!!!!!!!!!!!!!!!!!
 
 function appendicitis_handler() {
     var crp_risk_factor = crp_factor_app(crp);
