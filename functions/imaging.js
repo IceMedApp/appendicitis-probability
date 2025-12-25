@@ -1,24 +1,60 @@
-function sensitivity(imaging) {
-  if (imaging.value == 'good') {
+function sensitivity(imaging, appendix_visible) {
+  if (imaging.value == 'good' && appendix_visible.value == 'N/A') {
     return 0.9032
   }
-  else if (imaging.value == 'poor') {
+  else if (imaging.value == 'poor' && appendix_visible.value == 'N/A') {
     return 0.5758
   }
-  else if (imaging.value == 'ct') {
-    return 0.9231
+  else if (imaging.value == 'ct' && appendix_visible.value == 'N/A') {
+    return 0.9642
+  }
+  else if (imaging.value == 'good' && appendix_visible.value == 'yes') {
+    return 0.9655
+  }
+  else if (imaging.value == 'poor' && appendix_visible.value == 'yes') {
+    return 0.9167
+  }
+  else if (imaging.value == 'ct' && appendix_visible.value == 'yes') {
+    return 0.9886
+  }
+  else if (imaging.value == 'good' && appendix_visible.value == 'no') {
+    return 0.2
+  }
+  else if (imaging.value == 'poor' && appendix_visible.value == 'no') {
+    return 0.0513
+  }
+  else if (imaging.value == 'ct' && appendix_visible.value == 'no') {
+    return 0.5385
   }
 }
 
-function specificity(imaging) {
-  if (imaging.value == 'good') {
+function specificity(imaging, appendix_visible) {
+  if (imaging.value == 'good' && appendix_visible.value == 'N/A') {
     return 0.9529
   }
-  else if (imaging.value == 'poor') {
+  else if (imaging.value == 'poor' && appendix_visible.value == 'N/A') {
     return 0.9735
   }
-  else if (imaging.value == 'ct') {
-    return 0.9663
+  else if (imaging.value == 'ct' && appendix_visible.value == 'N/A') {
+    return 0.9838
+  }
+  else if (imaging.value == 'good' && appendix_visible.value == 'yes') {
+    return 0.9048
+  }
+  else if (imaging.value == 'poor' && appendix_visible.value == 'yes') {
+    return 0.8421
+  }
+  else if (imaging.value == 'ct' && appendix_visible.value == 'yes') {
+    return 0.9767
+  }
+  else if (imaging.value == 'good' && appendix_visible.value == 'no') {
+    return 1
+  }
+  else if (imaging.value == 'poor' && appendix_visible.value == 'no') {
+    return 0.9924
+  }
+  else if (imaging.value == 'ct' && appendix_visible.value == 'no') {
+    return 1
   }
 }
 

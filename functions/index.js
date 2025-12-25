@@ -180,8 +180,8 @@ var calculate_probabilities = function(){
 submitButton.onclick = calculate_probabilities;
 
 function imaging_handler() {
-    var imaging_sensitivity = sensitivity(imaging);
-    var imaging_specificity = specificity(imaging);
+    var imaging_sensitivity = sensitivity(imaging, appendix_visible);
+    var imaging_specificity = specificity(imaging, appendix_visible);
 
     var ppv_imaging_value = ppv_imaging(imaging_sensitivity, imaging_specificity, app_prob_hidden);
     ppv_field.innerText = ppv_imaging_value;
@@ -194,6 +194,8 @@ function imaging_handler() {
 }
 
 function visible_handler() {
+    // IMPORTANT
+    // take original app prob with adjustment * times increased prevelance
     var increased_prevelance_value = increased_prevelance(imaging, appendix_visible);
 
     var risk_with_increase = parseFloat(combined_risk_factor_hidden_app.innerText) * increased_prevelance_value;

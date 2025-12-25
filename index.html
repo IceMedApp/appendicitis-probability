@@ -10,19 +10,19 @@
 <form onsubmit="return false">
     <p>
         <input id="crp" type="text" placeholder="Type in crp">
-        <label for="crp">CRP (C-reactive protein mg/l)</label>
+        <label for="crp">CRP (C-reactive protein, in mg/l)</label>
     </p>
     <p>
         <input id="wbc" type="text" placeholder="Type in wbc">
-        <label for="wbc">WBC</label>
+        <label for="wbc">WBC (White blood cell count / μl*1000)</label>
     </p>
     <p>
         <input id="duration" type="text" placeholder="Type in duration">
-        <label for="duration">Duration of symptoms</label>
+        <label for="duration">Duration of symptoms in days (1 for the first 24 hours, 2 for 25-48 hours and so on)</label>
     </p>
     <p>
         <input id="temperature" type="text" placeholder="Type in temperature">
-        <label for="temperature">Temperature</label>
+        <label for="temperature">Temperature (in °C)</label>
     </p>
     <p>
         <input id="age" type="text" placeholder="Type in age">
@@ -38,7 +38,7 @@
     </p>
     <p>
         <input id="neutrophils" type="text" placeholder="Type in neutrophils">
-        <label for="neutrophils">Neutrophils</label>
+        <label for="neutrophils">Neutrophil-to-Leukocyte Ratio in % (neutrophilic count / WBC)</label>
     </p>
     <p>
         <select id="pain_rlq">
@@ -46,7 +46,7 @@
             <option value="no">No</option>
             <option value="N/A">N/A</option>
         </select>
-        <label for="pain_rlq">Pain RLQ</label>
+        <label for="pain_rlq">Pain in right lower quadrant (RLQ)</label>
     </p>
     <p>
         <select id="rebound_tender">
@@ -62,7 +62,7 @@
             <option value="no">No</option>
             <option value="N/A">N/A</option>
         </select>
-        <label for="localization">Localization</label>
+        <label for="localization">Migration of pain to the RLQ</label>
     </p>
     <p>
         <select id="anorexia">
@@ -86,7 +86,7 @@
             <option value="no">No</option>
             <option value="N/A">N/A</option>
         </select>
-        <label for="urine_analysis">Urine analysis</label>
+        <label for="urine_analysis">Was urine dipstick test performed?</label>
     </p>
     <p>
         <select id="rbc_select">
@@ -94,7 +94,7 @@
             <option value="no">No</option>
             <option value="N/A">N/A</option>
         </select>
-        <label for="rbc_select">RBC</label>
+        <label for="rbc_select">Red blood cells in urine (RBC)</label>
     </p>
     <p>
         <select id="wbc_select">
@@ -102,7 +102,7 @@
             <option value="no">No</option>
             <option value="N/A">N/A</option>
         </select>
-        <label for="wbc_select">WBC</label>
+        <label for="wbc_select">White blood cells in urine</label>
     </p>
     <p>
         <select id="culture">
@@ -110,7 +110,7 @@
             <option value="no">No</option>
             <option value="N/A">N/A</option>
         </select>
-        <label for="culture">Culture</label>
+        <label for="culture">Was urine culture performed (if no then “N/A”) if yes and positive for a bacterium that cause UTI (more than 1000 colonies) then “Yes” or if culture was performed but no bacteria that cause UTI or less than 1000 colonies then “No”</label>
     </p>
     <input id="submit" type="submit" value="Calculate"><br>
 </form>
