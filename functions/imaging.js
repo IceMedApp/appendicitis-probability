@@ -58,33 +58,15 @@ function specificity(imaging, appendix_visible) {
   }
 }
 
-function increased_prevelance(imaging, appendix_visible) {
-  if (imaging.value == 'good' && appendix_visible.value == 'N/A') {
-    return 1.0287804878
+function app_prob_multiplier_appendix_not_visible(imaging) {
+  if (imaging.value == 'good') {
+    return 0.209622
   }
-  else if (imaging.value == 'poor' && appendix_visible.value == 'N/A') {
-    return 0.9658536585
+  else if (imaging.value == 'poor') {
+    return 0.565054
   }
-  else if (imaging.value == 'ct' && appendix_visible.value == 'N/A') {
-    return 1
-  }
-  else if (imaging.value == 'good' && appendix_visible.value == 'yes') {
-    return 1.4518002323
-  }
-  else if (imaging.value == 'poor' && appendix_visible.value == 'yes') {
-    return 2.535368389
-  }
-  else if (imaging.value == 'ct' && appendix_visible.value == 'yes') {
-    return 1.039
-  }
-  else if (imaging.value == 'good' && appendix_visible.value == 'no') {
-    return 0.2075609756
-  }
-  else if (imaging.value == 'poor' && appendix_visible.value == 'no') {
-    return 0.5563414634
-  }
-  else if (imaging.value == 'ct' && appendix_visible.value == 'no') {
-    return 0.5475609756
+  else if (imaging.value == 'ct') {
+    return 0.488759
   }
 }
 

@@ -110,7 +110,7 @@
             <option value="no">No</option>
             <option value="N/A">N/A</option>
         </select>
-        <label for="culture">Was urine culture performed (if no then “N/A”) if yes and positive for a bacterium that cause UTI (more than 1000 colonies) then “Yes” or if culture was performed but no bacteria that cause UTI or less than 1000 colonies then “No”</label>
+        <label for="culture">Urine culture, if test not performed then “N/A”, if performed and positive for a bacterium that cause UTI (more than 1000 colonies) then “Yes” otherwise “No”</label>
     </p>
     <input id="submit" type="submit" value="Calculate"><br>
 </form>
@@ -145,8 +145,8 @@
 <form onsubmit="return false">
     <p>
         <select id="imaging">
-            <option value="good">Good ultrasound</option>
-            <option value="poor">Poor ultrasound</option>
+            <option value="good">Experienced ultrasound operator</option>
+            <option value="poor">Inexperienced ultrasound operator</option>
             <option value="ct">CT</option>
         </select>
         <label for="imaging">Imaging</label>
@@ -173,9 +173,9 @@
         <h4>Accuracy</h4>
         <p id="accuracy" type="text"></p>
     </div>
-    <div class="column" style="background-color:#ff0000;">
-        <h2>Increased prevelance</h2>
-        <h4>Appendicitis probability</h4>
+    <div id="imaging_not_visible" style="display:none;" class="column" style="background-color:#ff0000;">
+        <h2>Appendix cannot be visualized</h2>
+        <h4>New appendicitis probability</h4>
         <p id="app_prob_imaging" type="text"></p>
     </div>
 </div>

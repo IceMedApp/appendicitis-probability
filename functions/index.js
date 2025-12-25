@@ -194,22 +194,21 @@ function imaging_handler() {
 }
 
 function visible_handler() {
-    // IMPORTANT
-    // take original app prob with adjustment * times increased prevelance
-    var increased_prevelance_value = increased_prevelance(imaging, appendix_visible);
+    var app_prob_multiplier = app_prob_multiplier_appendix_not_visible(imaging);
 
-    var risk_with_increase = parseFloat(combined_risk_factor_hidden_app.innerText) * increased_prevelance_value;
+    var probability_not_visible = parseFloat(app_prob_hidden.innerText) * app_prob_multiplier;
 
-    var probability = app_probability(risk_with_increase);
-
-    var probability_str = probability_final_touches(probability);
+    var probability_str = probability_final_touches(probability_not_visible);
     app_prob_imaging.innerText = probability_str;
 }
 
 
 var calculate_imaging = function(){
     imaging_handler();
-    visible_handler();
+    if (appendix_visible.value == 'no') {
+        
+        visible_handler();
+    }
 }
 
 submitImagingButton.onclick = calculate_imaging;
