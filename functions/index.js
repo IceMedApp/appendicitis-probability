@@ -208,6 +208,7 @@ var calculate_imaging = function(){
     imaging_handler();
     if (appendix_visible.value == 'no') {
         imaging_not_visible_block.style.display = "block"
+        imaging_not_visible_block.style.backgroundColor = "#ff0000";
         visible_handler();
     }
 }
