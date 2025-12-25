@@ -78,7 +78,8 @@ var per_prob = document.getElementById("per_prob");
 // imaging
 var submitImagingButton = document.getElementById("submit_imaging");
 var imaging = document.getElementById("imaging");
-var appendix_visible = document.getElementById("appendix_visible");
+var imaging_not_visible_block = document.getElementById("imaging_not_visible");
+
 
 var ppv_field = document.getElementById("ppv");
 var npv_field = document.getElementById("npv"); 
@@ -206,7 +207,7 @@ function visible_handler() {
 var calculate_imaging = function(){
     imaging_handler();
     if (appendix_visible.value == 'no') {
-        appendix_visible.style.display = "block"
+        imaging_not_visible_block.style.display = "block"
         visible_handler();
     }
 }
