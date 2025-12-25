@@ -206,7 +206,7 @@ function visible_handler() {
 var calculate_imaging = function(){
     imaging_handler();
     if (appendix_visible.value == 'no') {
-
+        appendix_visible.style.display = "block"
         visible_handler();
     }
 }
