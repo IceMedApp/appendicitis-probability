@@ -88,7 +88,7 @@ function accuracy_imaging(sensitivity, specificity, app_prob_hidden) {
 export { 
     sensitivity,
     specificity,
-    increased_prevelance,
+    app_prob_multiplier_appendix_not_visible,
     ppv_imaging,
     npv_imaging,
     accuracy_imaging

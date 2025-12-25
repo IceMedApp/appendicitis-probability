@@ -44,7 +44,7 @@ import {
 import { 
     sensitivity,
     specificity,
-    increased_prevelance,
+    app_prob_multiplier_appendix_not_visible,
     ppv_imaging,
     npv_imaging,
     accuracy_imaging
@@ -206,7 +206,7 @@ function visible_handler() {
 var calculate_imaging = function(){
     imaging_handler();
     if (appendix_visible.value == 'no') {
-        
+
         visible_handler();
     }
 }
