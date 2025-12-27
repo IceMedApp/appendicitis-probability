@@ -257,7 +257,7 @@ function app_probability(risk_combined) {
 }
 
 function app_probability_final_touches(crp, wbc, duration, probability) {
-  if (crp.value < 10 && (wbc.value < 10.1 || duration.value == 3)) {
+  if (crp.value != '' && crp.value < 10 && (wbc.value < 10.1 || duration.value == 3)) {
     return 'Less than 5%'
   }
   else if (probability < 0) {
