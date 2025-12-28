@@ -2,7 +2,7 @@ import { expect, test } from 'vitest'
 import { 
     sensitivity,
     specificity,
-    increased_prevelance,
+    app_prob_multiplier_appendix_not_visible,
     ppv_imaging,
     npv_imaging,
     accuracy_imaging
@@ -21,90 +21,129 @@ class hidden_item {
 }
 
 // sensitivity
-test('imaging = good', () => {
+test('imaging = good, visible = N/A', () => {
   const imaging = new Risk_factor_item('good');
-  expect(sensitivity(imaging)).toBe(0.9032)
+  const visible = new Risk_factor_item('N/A');
+  expect(sensitivity(imaging, visible)).toBe(0.9032)
 })
 
-test('imaging = poor', () => {
+test('imaging = poor, visible = N/A', () => {
   const imaging = new Risk_factor_item('poor');
-  expect(sensitivity(imaging)).toBe(0.5758)
+  const visible = new Risk_factor_item('N/A');
+  expect(sensitivity(imaging, visible)).toBe(0.5758)
 })
 
-test('imaging = ct', () => {
+test('imaging = ct, visible = N/A', () => {
   const imaging = new Risk_factor_item('ct');
-  expect(sensitivity(imaging)).toBe(0.9231)
+  const visible = new Risk_factor_item('N/A');
+  expect(sensitivity(imaging, visible)).toBe(0.9642)
+})
+
+test('imaging = good, visible = yes', () => {
+  const imaging = new Risk_factor_item('good');
+  const visible = new Risk_factor_item('yes');
+  expect(sensitivity(imaging, visible)).toBe(0.9655)
+})
+
+test('imaging = poor, visible = yes', () => {
+  const imaging = new Risk_factor_item('poor');
+  const visible = new Risk_factor_item('yes');
+  expect(sensitivity(imaging, visible)).toBe(0.9167)
+})
+
+test('imaging = ct, visible = yes', () => {
+  const imaging = new Risk_factor_item('ct');
+  const visible = new Risk_factor_item('yes');
+  expect(sensitivity(imaging, visible)).toBe(0.9886)
+})
+
+test('imaging = good, visible = no', () => {
+  const imaging = new Risk_factor_item('good');
+  const visible = new Risk_factor_item('no');
+  expect(sensitivity(imaging, visible)).toBe(0.2)
+})
+
+test('imaging = poor, visible = no', () => {
+  const imaging = new Risk_factor_item('poor');
+  const visible = new Risk_factor_item('no');
+  expect(sensitivity(imaging, visible)).toBe(0.0513)
+})
+
+test('imaging = ct, visible = no', () => {
+  const imaging = new Risk_factor_item('ct');
+  const visible = new Risk_factor_item('no');
+  expect(sensitivity(imaging, visible)).toBe(0.5385)
 })
 
 // specificity
+test('imaging = good, visible = N/A', () => {
+  const imaging = new Risk_factor_item('good');
+  const visible = new Risk_factor_item('N/A');
+  expect(specificity(imaging, visible)).toBe(0.9529)
+})
+
+test('imaging = poor, visible = N/A', () => {
+  const imaging = new Risk_factor_item('poor');
+  const visible = new Risk_factor_item('N/A');
+  expect(specificity(imaging, visible)).toBe(0.9735)
+})
+
+test('imaging = ct, visible = N/A', () => {
+  const imaging = new Risk_factor_item('ct');
+  const visible = new Risk_factor_item('N/A');
+  expect(specificity(imaging, visible)).toBe(0.9838)
+})
+
+test('imaging = good, visible = yes', () => {
+  const imaging = new Risk_factor_item('good');
+  const visible = new Risk_factor_item('yes');
+  expect(specificity(imaging, visible)).toBe(0.9048)
+})
+
+test('imaging = poor, visible = yes', () => {
+  const imaging = new Risk_factor_item('poor');
+  const visible = new Risk_factor_item('yes');
+  expect(specificity(imaging, visible)).toBe(0.8421)
+})
+
+test('imaging = ct, visible = yes', () => {
+  const imaging = new Risk_factor_item('ct');
+  const visible = new Risk_factor_item('yes');
+  expect(specificity(imaging, visible)).toBe(0.9767)
+})
+
+test('imaging = good, visible = no', () => {
+  const imaging = new Risk_factor_item('good');
+  const visible = new Risk_factor_item('no');
+  expect(specificity(imaging, visible)).toBe(1)
+})
+
+test('imaging = poor, visible = no', () => {
+  const imaging = new Risk_factor_item('poor');
+  const visible = new Risk_factor_item('no');
+  expect(specificity(imaging, visible)).toBe(0.9924)
+})
+
+test('imaging = ct, visible = no', () => {
+  const imaging = new Risk_factor_item('ct');
+  const visible = new Risk_factor_item('no');
+  expect(specificity(imaging, visible)).toBe(1)
+})
+
+// app_prob_multiplier_appendix_not_visible
 test('imaging = good', () => {
   const imaging = new Risk_factor_item('good');
-  expect(specificity(imaging)).toBe(0.9529)
+  expect(app_prob_multiplier_appendix_not_visible(imaging)).toBe(0.209622)
 })
 
 test('imaging = poor', () => {
   const imaging = new Risk_factor_item('poor');
-  expect(specificity(imaging)).toBe(0.9735)
+  expect(app_prob_multiplier_appendix_not_visible(imaging)).toBe(0.565054)
 })
 
 test('imaging = ct', () => {
   const imaging = new Risk_factor_item('ct');
-  expect(specificity(imaging)).toBe(0.9663)
-})
-
-// increased_prevelance
-test('imaging = good and appendix_visible = N/A', () => {
-  const imaging = new Risk_factor_item('good');
-  const appendix_visible = new Risk_factor_item('N/A');
-  expect(increased_prevelance(imaging, appendix_visible)).toBe(1.0287804878)
-})
-
-test('imaging = poor and appendix_visible = N/A', () => {
-  const imaging = new Risk_factor_item('poor');
-  const appendix_visible = new Risk_factor_item('N/A');
-  expect(increased_prevelance(imaging, appendix_visible)).toBe(0.9658536585)
-})
-
-test('imaging = ct and appendix_visible = N/A', () => {
-  const imaging = new Risk_factor_item('ct');
-  const appendix_visible = new Risk_factor_item('N/A');
-  expect(increased_prevelance(imaging, appendix_visible)).toBe(1)
-})
-
-test('imaging = good and appendix_visible = yes', () => {
-  const imaging = new Risk_factor_item('good');
-  const appendix_visible = new Risk_factor_item('yes');
-  expect(increased_prevelance(imaging, appendix_visible)).toBe(1.4518002323)
-})
-
-test('imaging = poor and appendix_visible = yes', () => {
-  const imaging = new Risk_factor_item('poor');
-  const appendix_visible = new Risk_factor_item('yes');
-  expect(increased_prevelance(imaging, appendix_visible)).toBe(2.535368389)
-})
-
-test('imaging = ct and appendix_visible = yes', () => {
-  const imaging = new Risk_factor_item('ct');
-  const appendix_visible = new Risk_factor_item('yes');
-  expect(increased_prevelance(imaging, appendix_visible)).toBe(1.039)
-})
-
-test('imaging = good and appendix_visible = no', () => {
-  const imaging = new Risk_factor_item('good');
-  const appendix_visible = new Risk_factor_item('no');
-  expect(increased_prevelance(imaging, appendix_visible)).toBe(0.2075609756)
-})
-
-test('imaging = poor and appendix_visible = no', () => {
-  const imaging = new Risk_factor_item('poor');
-  const appendix_visible = new Risk_factor_item('no');
-  expect(increased_prevelance(imaging, appendix_visible)).toBe(0.5563414634)
-})
-
-test('imaging = ct and appendix_visible = no', () => {
-  const imaging = new Risk_factor_item('ct');
-  const appendix_visible = new Risk_factor_item('no');
-  expect(increased_prevelance(imaging, appendix_visible)).toBe(0.5475609756)
+  expect(app_prob_multiplier_appendix_not_visible(imaging)).toBe(0.488759)
 })
 
 // ppv_imaging
