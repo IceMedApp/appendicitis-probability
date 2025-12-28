@@ -204,7 +204,7 @@ function visible_handler() {
 }
 
 
-var calculate_imaging = function(){
+var calculate_imaging = function() {
     imaging_handler();
     if (appendix_visible.value == 'no') {
         imaging_not_visible_block.style.display = "block"
@@ -216,5 +216,20 @@ var calculate_imaging = function(){
     }
 }
 
+var urine_analysis_select_change = function() {
+    if (urine_analysis.value == 'yes') {
+        rbc_select.removeAttribute("disabled")
+        wbc_select.removeAttribute("disabled")
+        culture.removeAttribute("disabled")
+    }
+    else {
+        rbc_select.setAttribute("disabled", "disabled")
+        wbc_select.setAttribute("disabled", "disabled")
+        culture.setAttribute("disabled", "disabled")
+    }
+}
+
 submitImagingButton.onclick = calculate_imaging;
+
+urine_analysis.onchange = urine_analysis_select_change;
 
