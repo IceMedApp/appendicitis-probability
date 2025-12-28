@@ -211,6 +211,9 @@ var calculate_imaging = function(){
         imaging_not_visible_block.style.backgroundColor = "#ff0000";
         visible_handler();
     }
+    else {
+        imaging_not_visible_block.style.display = "none"
+    }
 }
 
 submitImagingButton.onclick = calculate_imaging;
