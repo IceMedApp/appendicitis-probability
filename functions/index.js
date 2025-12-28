@@ -226,6 +226,9 @@ var urine_analysis_select_change = function() {
         rbc_select.setAttribute("disabled", "disabled")
         wbc_select.setAttribute("disabled", "disabled")
         culture.setAttribute("disabled", "disabled")
+        rbc_select.value = 'N/A'
+        wbc_select.value = 'N/A'
+        culture.value = 'N/A'
     }
 }
 
