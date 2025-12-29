@@ -3,7 +3,14 @@
 }
 
 /* Create two equal columns that floats next to each other */
-.column {
+.column_app {
+  float: left;
+  width: 250px;
+  padding: 10px;
+  height: 160px; /* Should be removed. Only for demonstration */
+}
+
+.column_img {
   float: left;
   width: 250px;
   padding: 10px;
