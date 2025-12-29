@@ -88,8 +88,6 @@ var app_prob_imaging = document.getElementById("app_prob_imaging");
 
 // appendix
 var combined_risk_factor_hidden_app = document.getElementById("risk_factor_hidden");
-var adjustment = document.getElementById("adjustment");
-var app_prob_before = document.getElementById("app_prob_before");
 
 
 function appendicitis_handler() {
@@ -115,9 +113,7 @@ function appendicitis_handler() {
 
     var probability = app_probability(risk_combined);
 
-    app_prob_before.innerText = probability;
     var adjustment_value = app_prob_correction(probability);
-    adjustment.innerText = adjustment_value
     probability = probability + adjustment_value
     app_prob_hidden.innerText = probability;
 
