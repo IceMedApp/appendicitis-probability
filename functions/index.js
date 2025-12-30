@@ -185,8 +185,8 @@ function imaging_handler() {
     var kappa = kappa_factor(imaging, appendix_visible);
     
     if (appendix_visible.value == 'yes') {
-        var new_risk_factor_app = risk_combined_app * kappa
-        var prevalence = app_probability(new_risk_factor_app)
+        var new_risk_combined_app = risk_combined_app * kappa
+        var prevalence = app_probability(new_risk_combined_app)
     }
     else {
         var prevalence = parseFloat(app_prob_hidden.innerText) * kappa
