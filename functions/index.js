@@ -181,8 +181,8 @@ function imaging_handler() {
     var imaging_sensitivity = sensitivity(imaging, appendix_visible);
     var imaging_specificity = specificity(imaging, appendix_visible);
 
-    var kappa_factor = kappa_factor(imaging, appendix_visible);
-    var prevalence = parseFloat(app_prob_hidden.innerText) * kappa_factor
+    var kappa = kappa_factor(imaging, appendix_visible);
+    var prevalence = parseFloat(app_prob_hidden.innerText) * kappa
 
     var ppv_imaging_value = ppv_imaging(imaging_sensitivity, imaging_specificity, prevalence);
     ppv_field.innerText = ppv_imaging_value;
