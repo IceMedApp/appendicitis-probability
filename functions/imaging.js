@@ -94,19 +94,16 @@ function kappa_factor(imaging, appendix_visible) {
   }
 }
 
-function ppv_imaging(sensitivity, specificity, app_prob_hidden) {
-    var app_prob = parseFloat(app_prob_hidden.innerText);
-    return (sensitivity*app_prob)/((sensitivity*app_prob)+(1-specificity)*(1-app_prob))
+function ppv_imaging(sensitivity, specificity, prevalence) {
+    return (sensitivity*prevalence)/((sensitivity*prevalence)+(1-specificity)*(1-prevalence))
 }
 
-function npv_imaging(sensitivity, specificity, app_prob_hidden) {
-    var app_prob = parseFloat(app_prob_hidden.innerText);
-    return (specificity*(1-app_prob))/((1-sensitivity)*app_prob+specificity*(1-app_prob))
+function npv_imaging(sensitivity, specificity, prevalence) {
+    return (specificity*(1-prevalence))/((1-sensitivity)*prevalence+specificity*(1-prevalence))
 }
 
-function accuracy_imaging(sensitivity, specificity, app_prob_hidden) {
-    var app_prob = parseFloat(app_prob_hidden.innerText);
-    return sensitivity*app_prob+specificity*(1-app_prob)
+function accuracy_imaging(sensitivity, specificity, prevalence) {
+    return sensitivity*prevalence+specificity*(1-prevalence)
 }
 
 export { 
