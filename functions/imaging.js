@@ -58,18 +58,6 @@ function specificity(imaging, appendix_visible) {
   }
 }
 
-function app_prob_multiplier_appendix_not_visible(imaging) {
-  if (imaging.value == 'good') {
-    return 0.209622
-  }
-  else if (imaging.value == 'poor') {
-    return 0.565054
-  }
-  else if (imaging.value == 'ct') {
-    return 0.488759
-  }
-}
-
 function kappa_factor(imaging, appendix_visible) {
   if (imaging.value == 'good' && appendix_visible.value == 'yes') {
     return 1.430333
@@ -109,7 +97,6 @@ function accuracy_imaging(sensitivity, specificity, prevalence) {
 export { 
     sensitivity,
     specificity,
-    app_prob_multiplier_appendix_not_visible,
     kappa_factor,
     ppv_imaging,
     npv_imaging,

@@ -44,7 +44,6 @@ import {
 import { 
     sensitivity,
     specificity,
-    app_prob_multiplier_appendix_not_visible,
     kappa_factor,
     ppv_imaging,
     npv_imaging,
@@ -192,6 +191,12 @@ function imaging_handler() {
         var prevalence = parseFloat(app_prob_hidden.innerText) * kappa
     }
 
+    // prevelance is the new appendicitis probability if appendix was not visible
+    if (appendix_visible.value == 'no') {
+        var probability_str = probability_final_touches(prevalence);
+        app_prob_imaging.innerText = probability_str;
+    }
+
     var ppv_imaging_value = ppv_imaging(imaging_sensitivity, imaging_specificity, prevalence);
     ppv_field.innerText = probability_final_touches(ppv_imaging_value);
 
@@ -202,22 +207,12 @@ function imaging_handler() {
     accuracy_field.innerText = probability_final_touches(accuracy_imaging_value);
 }
 
-function visible_handler() {
-    var app_prob_multiplier = app_prob_multiplier_appendix_not_visible(imaging);
-
-    var probability_not_visible = parseFloat(app_prob_hidden.innerText) * app_prob_multiplier;
-
-    var probability_str = probability_final_touches(probability_not_visible);
-    app_prob_imaging.innerText = probability_str;
-}
-
 
 var calculate_imaging = function() {
     imaging_handler();
     if (appendix_visible.value == 'no') {
         imaging_not_visible_block.style.display = "block"
         imaging_not_visible_block.style.backgroundColor = "#ff0000";
-        visible_handler();
     }
     else {
         imaging_not_visible_block.style.display = "none"
