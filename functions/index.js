@@ -193,13 +193,13 @@ function imaging_handler() {
     }
 
     var ppv_imaging_value = ppv_imaging(imaging_sensitivity, imaging_specificity, prevalence);
-    ppv_field.innerText = ppv_imaging_value;
+    ppv_field.innerText = probability_final_touches(ppv_imaging_value);
 
     var npv_imaging_value = npv_imaging(imaging_sensitivity, imaging_specificity, prevalence);
-    npv_field.innerText = npv_imaging_value;
+    npv_field.innerText = probability_final_touches(npv_imaging_value);
 
     var accuracy_imaging_value = accuracy_imaging(imaging_sensitivity, imaging_specificity, prevalence);
-    accuracy_field.innerText = accuracy_imaging_value;
+    accuracy_field.innerText = probability_final_touches(accuracy_imaging_value);
 }
 
 function visible_handler() {
