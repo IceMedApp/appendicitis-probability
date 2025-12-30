@@ -70,6 +70,30 @@ function app_prob_multiplier_appendix_not_visible(imaging) {
   }
 }
 
+function kappa_factor(imaging, appendix_visible) {
+  if (imaging.value == 'good' && appendix_visible.value == 'yes') {
+    return 1.430333
+  }
+  else if (imaging.value == 'poor' && appendix_visible.value == 'yes') {
+    return 1.872996
+  }
+  else if (imaging.value == 'ct' && appendix_visible.value == 'yes') {
+    return 1.191886
+  }
+  else if (imaging.value == 'good' && appendix_visible.value == 'no') {
+    return 0.209622
+  }
+  else if (imaging.value == 'poor' && appendix_visible.value == 'no') {
+    return 0.565054
+  }
+  else if (imaging.value == 'ct' && appendix_visible.value == 'no') {
+    return 0.502602
+  }
+  else if (appendix_visible.value == 'N/A') {
+    return 1
+  }
+}
+
 function ppv_imaging(sensitivity, specificity, app_prob_hidden) {
     var app_prob = parseFloat(app_prob_hidden.innerText);
     return (sensitivity*app_prob)/((sensitivity*app_prob)+(1-specificity)*(1-app_prob))
@@ -89,6 +113,7 @@ export {
     sensitivity,
     specificity,
     app_prob_multiplier_appendix_not_visible,
+    kappa_factor,
     ppv_imaging,
     npv_imaging,
     accuracy_imaging

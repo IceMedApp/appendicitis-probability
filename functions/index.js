@@ -45,6 +45,7 @@ import {
     sensitivity,
     specificity,
     app_prob_multiplier_appendix_not_visible,
+    kappa_factor,
     ppv_imaging,
     npv_imaging,
     accuracy_imaging
@@ -180,13 +181,16 @@ function imaging_handler() {
     var imaging_sensitivity = sensitivity(imaging, appendix_visible);
     var imaging_specificity = specificity(imaging, appendix_visible);
 
-    var ppv_imaging_value = ppv_imaging(imaging_sensitivity, imaging_specificity, app_prob_hidden);
+    var kappa_factor = kappa_factor(imaging, appendix_visible);
+    var prevalence = parseFloat(app_prob_hidden.innerText) * kappa_factor
+
+    var ppv_imaging_value = ppv_imaging(imaging_sensitivity, imaging_specificity, prevalence);
     ppv_field.innerText = ppv_imaging_value;
 
-    var npv_imaging_value = npv_imaging(imaging_sensitivity, imaging_specificity, app_prob_hidden);
+    var npv_imaging_value = npv_imaging(imaging_sensitivity, imaging_specificity, prevalence);
     npv_field.innerText = npv_imaging_value;
 
-    var accuracy_imaging_value = accuracy_imaging(imaging_sensitivity, imaging_specificity, app_prob_hidden);
+    var accuracy_imaging_value = accuracy_imaging(imaging_sensitivity, imaging_specificity, prevalence);
     accuracy_field.innerText = accuracy_imaging_value;
 }
 
