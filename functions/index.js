@@ -69,6 +69,7 @@ var urine_analysis = document.getElementById("urine_analysis");
 var rbc_select = document.getElementById("rbc_select");
 var wbc_select = document.getElementById("wbc_select");
 var culture = document.getElementById("culture");
+var risk_combined_app = 0;
 
 var submitButton = document.getElementById("submit");
 var app_prob = document.getElementById("app_prob");
@@ -109,10 +110,10 @@ function appendicitis_handler() {
     var wbc_select_risk_factor = wbc_select_factor_app(wbc_select);
     var culture_risk_factor = culture_factor_app(culture);
 
-    var risk_combined = crp_risk_factor * wbc_risk_factor * duration_risk_factor * temp_risk_factor * age_risk_factor * gender_risk_factor * neutrophils_risk_factor * pain_rlq_risk_factor * rebound_tender_risk_factor * local_risk_factor * anorexia_risk_factor * nausea_risk_factor * ua_risk_factor * rbc_select_risk_factor * wbc_select_risk_factor * culture_risk_factor;
-    combined_risk_factor_hidden_app.innerText = risk_combined
+    risk_combined_app = crp_risk_factor * wbc_risk_factor * duration_risk_factor * temp_risk_factor * age_risk_factor * gender_risk_factor * neutrophils_risk_factor * pain_rlq_risk_factor * rebound_tender_risk_factor * local_risk_factor * anorexia_risk_factor * nausea_risk_factor * ua_risk_factor * rbc_select_risk_factor * wbc_select_risk_factor * culture_risk_factor;
+    combined_risk_factor_hidden_app.innerText = risk_combined_app
 
-    var probability = app_probability(risk_combined);
+    var probability = app_probability(risk_combined_app);
 
     var adjustment_value = app_prob_correction(probability);
     probability = probability + adjustment_value
@@ -182,7 +183,14 @@ function imaging_handler() {
     var imaging_specificity = specificity(imaging, appendix_visible);
 
     var kappa = kappa_factor(imaging, appendix_visible);
-    var prevalence = parseFloat(app_prob_hidden.innerText) * kappa
+    
+    if (appendix_visible.value == 'yes') {
+        var new_risk_factor_app = risk_combined_app * kappa
+        var prevalence = app_probability(new_risk_factor_app)
+    }
+    else {
+        var prevalence = parseFloat(app_prob_hidden.innerText) * kappa
+    }
 
     var ppv_imaging_value = ppv_imaging(imaging_sensitivity, imaging_specificity, prevalence);
     ppv_field.innerText = ppv_imaging_value;
